@@ -1,0 +1,7 @@
+asapproved
+Copyright 2026 Kwun Ho James Kong
+
+This product includes data derived from the pharmaverseadam R package
+(https://github.com/pharmaverse/pharmaverseadam), licensed under the Apache License,
+Version 2.0. The file examples/pharma_tlf/data/adsl.csv is a column subset of that
+package's ADSL dataset (CDISC pilot study data), exported without modification of values.

@@ -1,0 +1,56 @@
+name: Validation report
+description: Record a run of asapproved on public data, in your own name.
+title: "Validation report: <what you checked>"
+labels: [validation-report]
+body:
+  - type: input
+    id: reviewer
+    attributes:
+      label: Name and role
+      placeholder: "Jane Doe, Statistical Programmer (personal capacity)"
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Run date (YYYY-MM-DD)
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: asapproved version
+      placeholder: "output of: asapproved version"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What you checked
+      description: Recipe, dataset (public), approved and candidate tables.
+    validations:
+      required: true
+  - type: dropdown
+    id: verdict
+    attributes:
+      label: Verdict
+      options: [PASS, FAIL]
+    validations:
+      required: true
+  - type: textarea
+    id: observations
+    attributes:
+      label: Observations
+      description: What the tool caught, missed, or got wrong. Where it did not help is as useful as where it did.
+  - type: textarea
+    id: report
+    attributes:
+      label: Report
+      description: Paste or attach report.md.
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmations
+      options:
+        - label: I ran this on public data only, in a personal capacity; no patient or employer data was used.
+          required: true

@@ -1,0 +1,81 @@
+variable,category,statistic,group,value
+AGE,,n,Placebo,86.0
+AGE,,mean,Placebo,75.21
+AGE,,sd,Placebo,8.59
+AGE,,median,Placebo,76.0
+AGE,,min,Placebo,52.0
+AGE,,max,Placebo,89.0
+AGE,,n,Xanomeline High Dose,72.0
+AGE,,mean,Xanomeline High Dose,73.78
+AGE,,sd,Xanomeline High Dose,7.94
+AGE,,median,Xanomeline High Dose,75.5
+AGE,,min,Xanomeline High Dose,56.0
+AGE,,max,Xanomeline High Dose,88.0
+AGE,,n,Xanomeline Low Dose,96.0
+AGE,,mean,Xanomeline Low Dose,75.96
+AGE,,sd,Xanomeline Low Dose,8.11
+AGE,,median,Xanomeline Low Dose,78.0
+AGE,,min,Xanomeline Low Dose,51.0
+AGE,,max,Xanomeline Low Dose,88.0
+AGE,,n,Total,254.0
+AGE,,mean,Total,75.09
+AGE,,sd,Total,8.25
+AGE,,median,Total,77.0
+AGE,,min,Total,51.0
+AGE,,max,Total,89.0
+SEX,F,n,Placebo,53.0
+SEX,F,pct,Placebo,61.63
+SEX,M,n,Placebo,33.0
+SEX,M,pct,Placebo,38.37
+SEX,F,n,Xanomeline High Dose,35.0
+SEX,F,pct,Xanomeline High Dose,48.61
+SEX,M,n,Xanomeline High Dose,37.0
+SEX,M,pct,Xanomeline High Dose,51.39
+SEX,F,n,Xanomeline Low Dose,55.0
+SEX,F,pct,Xanomeline Low Dose,57.29
+SEX,M,n,Xanomeline Low Dose,41.0
+SEX,M,pct,Xanomeline Low Dose,42.71
+SEX,F,n,Total,143.0
+SEX,F,pct,Total,56.3
+SEX,M,n,Total,111.0
+SEX,M,pct,Total,43.7
+RACE,AMERICAN INDIAN OR ALASKA NATIVE,n,Placebo,0.0
+RACE,AMERICAN INDIAN OR ALASKA NATIVE,pct,Placebo,0.0
+RACE,BLACK OR AFRICAN AMERICAN,n,Placebo,8.0
+RACE,BLACK OR AFRICAN AMERICAN,pct,Placebo,9.3
+RACE,WHITE,n,Placebo,78.0
+RACE,WHITE,pct,Placebo,90.7
+RACE,AMERICAN INDIAN OR ALASKA NATIVE,n,Xanomeline High Dose,1.0
+RACE,AMERICAN INDIAN OR ALASKA NATIVE,pct,Xanomeline High Dose,1.39
+RACE,BLACK OR AFRICAN AMERICAN,n,Xanomeline High Dose,9.0
+RACE,BLACK OR AFRICAN AMERICAN,pct,Xanomeline High Dose,12.5
+RACE,WHITE,n,Xanomeline High Dose,62.0
+RACE,WHITE,pct,Xanomeline High Dose,86.11
+RACE,AMERICAN INDIAN OR ALASKA NATIVE,n,Xanomeline Low Dose,0.0
+RACE,AMERICAN INDIAN OR ALASKA NATIVE,pct,Xanomeline Low Dose,0.0
+RACE,BLACK OR AFRICAN AMERICAN,n,Xanomeline Low Dose,6.0
+RACE,BLACK OR AFRICAN AMERICAN,pct,Xanomeline Low Dose,6.25
+RACE,WHITE,n,Xanomeline Low Dose,90.0
+RACE,WHITE,pct,Xanomeline Low Dose,93.75
+RACE,AMERICAN INDIAN OR ALASKA NATIVE,n,Total,1.0
+RACE,AMERICAN INDIAN OR ALASKA NATIVE,pct,Total,0.39
+RACE,BLACK OR AFRICAN AMERICAN,n,Total,23.0
+RACE,BLACK OR AFRICAN AMERICAN,pct,Total,9.06
+RACE,WHITE,n,Total,230.0
+RACE,WHITE,pct,Total,90.55
+AGEGR1,18-64,n,Placebo,14.0
+AGEGR1,18-64,pct,Placebo,16.28
+AGEGR1,>64,n,Placebo,72.0
+AGEGR1,>64,pct,Placebo,83.72
+AGEGR1,18-64,n,Xanomeline High Dose,11.0
+AGEGR1,18-64,pct,Xanomeline High Dose,15.28
+AGEGR1,>64,n,Xanomeline High Dose,61.0
+AGEGR1,>64,pct,Xanomeline High Dose,84.72
+AGEGR1,18-64,n,Xanomeline Low Dose,8.0
+AGEGR1,18-64,pct,Xanomeline Low Dose,8.33
+AGEGR1,>64,n,Xanomeline Low Dose,88.0
+AGEGR1,>64,pct,Xanomeline Low Dose,91.67
+AGEGR1,18-64,n,Total,33.0
+AGEGR1,18-64,pct,Total,12.99
+AGEGR1,>64,n,Total,221.0
+AGEGR1,>64,pct,Total,87.01

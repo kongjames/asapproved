@@ -1,0 +1,29 @@
+# Demographics summary by actual treatment, safety population.
+# Dataset: public CDISC pilot ADSL as shipped by pharmaverseadam (Apache-2.0). No private data.
+name: demographics_by_treatment
+title: "Table 14.1.1 — Demographics, safety population (CDISC pilot ADSL)"
+dataset: data/adsl.csv
+population:
+  filter: "SAFFL == 'Y'"
+  description: "Safety population (SAFFL = Y)"
+group_by: TRT01A
+include_total: true
+total_label: Total
+decimals: 2
+tolerances:
+  numeric_abs: 0.005   # half a unit in the second decimal
+rows:
+  - variable: AGE
+    label: Age (years)
+    type: continuous
+    stats: [n, mean, sd, median, min, max]
+  - variable: SEX
+    label: Sex
+    type: categorical
+    categories: [F, M]
+  - variable: RACE
+    label: Race
+    type: categorical
+  - variable: AGEGR1
+    label: Age group
+    type: categorical
