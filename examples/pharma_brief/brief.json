@@ -1,0 +1,131 @@
+{
+  "question": "What do public records say about metformin hydrochloride in type 2 diabetes: completed trials, the label's boxed warning, and the most reported adverse events?",
+  "summary": "Three completed trials of metformin in the stated condition were retrieved, one current label for a sitagliptin and metformin combination product, and the most frequently reported reaction terms from spontaneous reports. The label carries a boxed warning for lactic acidosis.",
+  "claims": [
+    {
+      "id": "c1",
+      "text": "NCT00899470, a phase 1 bioequivalence study of saxagliptin and metformin formulations, enrolled 24 participants.",
+      "record_ids": [
+        "NCT00899470"
+      ],
+      "numbers": [
+        {
+          "value": 24.0,
+          "unit": "participants",
+          "record_id": "NCT00899470",
+          "path": "enrollment_count"
+        }
+      ],
+      "status": "unchecked",
+      "reasons": [],
+      "warnings": []
+    },
+    {
+      "id": "c2",
+      "text": "The retrieved label (version 6, effective 2026-08-12) has a boxed warning for lactic acidosis.",
+      "record_ids": [
+        "0098dec4-f0e5-45d5-8aa4-5d0faf9ab142"
+      ],
+      "numbers": [
+        {
+          "value": 6.0,
+          "unit": null,
+          "record_id": "0098dec4-f0e5-45d5-8aa4-5d0faf9ab142",
+          "path": "version"
+        }
+      ],
+      "status": "unchecked",
+      "reasons": [],
+      "warnings": []
+    },
+    {
+      "id": "c3",
+      "text": "NCT02401880 enrolled 90 participants.",
+      "record_ids": [
+        "NCT02401880"
+      ],
+      "numbers": [
+        {
+          "value": 90.0,
+          "unit": "participants",
+          "record_id": "NCT02401880",
+          "path": "enrollment_count"
+        }
+      ],
+      "status": "unchecked",
+      "reasons": [],
+      "warnings": []
+    },
+    {
+      "id": "c4",
+      "text": "A separate registry entry reports a phase 3 outcome study with 4,000 participants.",
+      "record_ids": [
+        "NCT99999999"
+      ],
+      "numbers": [
+        {
+          "value": 4000.0,
+          "unit": "participants",
+          "record_id": "NCT99999999",
+          "path": "enrollment_count"
+        }
+      ],
+      "status": "unchecked",
+      "reasons": [],
+      "warnings": []
+    },
+    {
+      "id": "c5",
+      "text": "In spontaneous reports, the most reported reaction term is diarrhoea with 6342 reports; these are report counts, not rates.",
+      "record_ids": [
+        "faers-count:metformin-hydrochloride:patient.reaction.reactionmeddrapt.exact"
+      ],
+      "numbers": [
+        {
+          "value": 6342.0,
+          "unit": "reports",
+          "record_id": "faers-count:metformin-hydrochloride:patient.reaction.reactionmeddrapt.exact",
+          "path": "terms[0].count"
+        }
+      ],
+      "status": "unchecked",
+      "reasons": [],
+      "warnings": []
+    }
+  ],
+  "run_meta": {
+    "run_id": "example",
+    "created_at": "2026-11-07T22:00:00+00:00",
+    "tool_version": "0.1.0.dev0",
+    "provider": "hand-written (not model output)",
+    "model_id": "n/a",
+    "usage": {},
+    "queries": [
+      {
+        "source": "clinicaltrials.search",
+        "params": {
+          "condition": "type 2 diabetes",
+          "intervention": "metformin",
+          "status": "COMPLETED",
+          "limit": 3
+        }
+      },
+      {
+        "source": "openfda.labels",
+        "params": {
+          "generic_name": "metformin hydrochloride",
+          "limit": 1
+        }
+      },
+      {
+        "source": "openfda.event_counts",
+        "params": {
+          "generic_name": "metformin hydrochloride",
+          "limit": 5
+        }
+      }
+    ],
+    "record_count": 5,
+    "prompt_sha256": null
+  }
+}

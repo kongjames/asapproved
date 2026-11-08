@@ -1,0 +1,35 @@
+{
+ "source": "openfda.event",
+ "record_id": "faers-count:metformin-hydrochloride:patient.reaction.reactionmeddrapt.exact",
+ "url": "https://api.fda.gov/drug/event.json?search=patient.drug.openfda.generic_name%3A%22metformin%20hydrochloride%22&count=patient.reaction.reactionmeddrapt.exact&limit=5",
+ "retrieved_at": "2026-11-07T22:00:00+00:00",
+ "sha256": "08928c979dac952b98755ba891cc5111c386340046b8ed0326ac92e64442fbf4",
+ "payload": {
+  "generic_name": "metformin hydrochloride",
+  "count_field": "patient.reaction.reactionmeddrapt.exact",
+  "terms": [
+   {
+    "term": "DIARRHOEA",
+    "count": 6342
+   },
+   {
+    "term": "NAUSEA",
+    "count": 5401
+   },
+   {
+    "term": "LACTIC ACIDOSIS",
+    "count": 5367
+   },
+   {
+    "term": "ACUTE KIDNEY INJURY",
+    "count": 4485
+   },
+   {
+    "term": "FATIGUE",
+    "count": 4461
+   }
+  ],
+  "openfda_last_updated": "2026-10-28",
+  "openfda_disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service."
+ }
+}

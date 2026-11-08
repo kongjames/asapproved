@@ -1,0 +1,26 @@
+{
+ "source": "clinicaltrials.gov",
+ "record_id": "NCT00375388",
+ "url": "https://clinicaltrials.gov/study/NCT00375388",
+ "retrieved_at": "2026-11-07T22:00:00+00:00",
+ "sha256": "0b45d46768bb8c07da0db9556059d5ff4c9772d82afa1edb45a953f481285fd1",
+ "payload": {
+  "nct_id": "NCT00375388",
+  "brief_title": "The HOME Trial: Hyperinsulinaemia: the Outcome of Its Metabolic Effects, a Randomized Controlled Trial",
+  "overall_status": "COMPLETED",
+  "phases": [
+   "PHASE3"
+  ],
+  "enrollment_count": 400,
+  "enrollment_type": null,
+  "start_date": "1998-01",
+  "completion_date": "2002-10",
+  "lead_sponsor": "Bethesda General Hospital, Hoogeveen",
+  "conditions": [
+   "Type 2 Diabetes Mellitus"
+  ],
+  "interventions": [
+   "Metformin on top of intensive insulin therapy"
+  ]
+ }
+}

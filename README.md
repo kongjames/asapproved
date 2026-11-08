@@ -33,11 +33,15 @@ brief in which every number and claim points at a stored source record. The assu
 checks that brief the same way it checks a table, and a baseline of re-runs lets it flag change
 beyond normal day-to-day variation.
 
-Shipped so far: the provider interface (`asapproved/llm/`, one `complete()` call; Anthropic and a
-scripted fake) and the source adapters with stored, hashed records (`asapproved/sources/`:
-ClinicalTrials.gov API v2, openFDA labels and FAERS counts). What each adapter stores and under
-which terms: [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md). The research loop and `check-brief`
-come next.
+Shipped so far: the loop itself (`asapproved research`: plan → fetch → draft → post-check, about a
+hundred lines in `asapproved/research/agent.py`), the provider interface (`asapproved/llm/`, one
+`complete()` call; Anthropic and a scripted fake), the source adapters with stored, hashed records
+(`asapproved/sources/`: ClinicalTrials.gov API v2, openFDA labels and FAERS counts), and the
+deterministic post-check (`asapproved check-brief`). The model sees only the records the adapters
+stored; the check then resolves every citation and every number back to a stored record. What each
+adapter stores and under which terms: [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md). A worked
+example with two deliberate faults: [examples/pharma_brief](examples/pharma_brief/README.md).
+Still to come: the re-run baseline and drift flag.
 
 ## Start using
 
@@ -46,9 +50,11 @@ come next.
 | See it work on the shipped example | `asapproved check-table examples/pharma_tlf/recipe.yaml --approved examples/pharma_tlf/approved_sas_table.csv --candidate examples/pharma_tlf/candidate_r_table.csv` |
 | Create an approved baseline from a recipe | `asapproved recompute my_recipe.yaml --out approved.csv` |
 | Check a new output against it | `asapproved check-table my_recipe.yaml --approved approved.csv --candidate new.csv --reviewer "Name, Role (personal capacity)"` |
+| Check the shipped example brief (no key, no network) | `asapproved check-brief examples/pharma_brief/brief.json` |
+| Answer a question from public records and check the brief | `asapproved research "What do public records say about X?" --out runs` (needs `asapproved[llm]` and an Anthropic credential) |
 | Leave a public record of your run | [docs/ADOPTER_WORKFLOW.md](docs/ADOPTER_WORKFLOW.md) |
 
-Exit code `0` = all checks pass; `1` = at least one cell disagrees.
+Exit code `0` = all checks pass; `1` = at least one cell disagrees or one claim is unsupported.
 
 ## Worked example: a demographics table, approved vs re-implemented
 
@@ -79,8 +85,11 @@ See [ADOPTERS.md](ADOPTERS.md). Add a row by pull request after filing a
 
 ## Tests
 
-`uv run pytest`: unit tests for re-computation and comparison, and a golden test that the shipped
-example reproduces its expected report byte for byte. CI never calls a network or a language model.
+`uv run pytest`: unit tests for re-computation, comparison, the provider interface, the source
+adapters (on captured fixtures), the research loop (with the scripted provider) and the post-check;
+golden tests that both shipped examples reproduce their expected reports byte for byte. CI sets
+`ASAPPROVED_OFFLINE=1` and never calls a network or a language model; live smoke tests run only
+with `ASAPPROVED_LIVE=1`.
 
 ## AI disclosure, citation, licence
 

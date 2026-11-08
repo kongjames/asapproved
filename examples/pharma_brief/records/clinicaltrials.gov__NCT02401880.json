@@ -1,0 +1,28 @@
+{
+ "source": "clinicaltrials.gov",
+ "record_id": "NCT02401880",
+ "url": "https://clinicaltrials.gov/study/NCT02401880",
+ "retrieved_at": "2026-11-07T22:00:00+00:00",
+ "sha256": "a1ed86aefd0cd7cc32c6262975fdc08d50e340e94d99fe5efaf32a612b1ee28a",
+ "payload": {
+  "nct_id": "NCT02401880",
+  "brief_title": "Effects of Linagliptin in Addition to Empagliflozin on Islet Cell Physiology",
+  "overall_status": "COMPLETED",
+  "phases": [
+   "PHASE4"
+  ],
+  "enrollment_count": 89,
+  "enrollment_type": "ACTUAL",
+  "start_date": "2015-05",
+  "completion_date": "2015-12",
+  "lead_sponsor": "Profil Institut für Stoffwechselforschung GmbH",
+  "conditions": [
+   "Type 2 Diabetes Mellitus"
+  ],
+  "interventions": [
+   "Linagliptin",
+   "Placebo",
+   "Empagliflozin"
+  ]
+ }
+}

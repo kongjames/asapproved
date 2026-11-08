@@ -1,0 +1,29 @@
+{
+ "source": "clinicaltrials.gov",
+ "record_id": "NCT00899470",
+ "url": "https://clinicaltrials.gov/study/NCT00899470",
+ "retrieved_at": "2026-11-07T22:00:00+00:00",
+ "sha256": "2952ba443f891ea1c820bad09c2c32397773c178f446453d34b1c211bd30082e",
+ "payload": {
+  "nct_id": "NCT00899470",
+  "brief_title": "Bioequivalence Study of Saxagliptin and Glucophage Combination Formulations in Healthy Subjects (A)",
+  "overall_status": "COMPLETED",
+  "phases": [
+   "PHASE1"
+  ],
+  "enrollment_count": 24,
+  "enrollment_type": "ACTUAL",
+  "start_date": "2009-06",
+  "completion_date": "2009-08",
+  "lead_sponsor": "AstraZeneca",
+  "conditions": [
+   "Type 2 Diabetes Mellitus"
+  ],
+  "interventions": [
+   "Co-administration of Saxagliptin and Metformin IR, Fasted",
+   "Saxagliptin/Metformin, Fasting",
+   "Co-administration of Saxagliptin and Metformin IR, Fed",
+   "Saxagliptin/Metformin, Fed"
+  ]
+ }
+}
