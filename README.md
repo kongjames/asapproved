@@ -27,11 +27,17 @@ Given a **recipe** (how a table is derived) and a **dataset**, it:
 4. writes a Markdown report: summary, every disagreeing cell, a trace of each derivation, limits,
    and a signature block.
 
-### Research agent (v0.2 — planned)
+### Research agent (v0.2 — in progress)
 Answers a question from public sources only (ClinicalTrials.gov, openFDA, PubMed) and produces a
 brief in which every number and claim points at a stored source record. The assurance agent then
 checks that brief the same way it checks a table, and a baseline of re-runs lets it flag change
 beyond normal day-to-day variation.
+
+Shipped so far: the provider interface (`asapproved/llm/`, one `complete()` call; Anthropic and a
+scripted fake) and the source adapters with stored, hashed records (`asapproved/sources/`:
+ClinicalTrials.gov API v2, openFDA labels and FAERS counts). What each adapter stores and under
+which terms: [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md). The research loop and `check-brief`
+come next.
 
 ## Start using
 
@@ -57,6 +63,7 @@ and a candidate table with two deliberate defects. The expected report is checke
 ```bash
 pip install asapproved            # library + CLI
 pip install 'asapproved[data]'    # + pyreadr, to re-export the pilot data from upstream
+pip install 'asapproved[llm]'     # + the Anthropic SDK, for the research agent (the checks never need it)
 ```
 Python 3.11 or later. Development: `uv sync --extra dev && uv run pytest`.
 

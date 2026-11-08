@@ -24,6 +24,9 @@ dependencies = [
 [project.optional-dependencies]
 data = ["pyreadr>=0.5"]
 dev = ["pytest>=8", "ruff>=0.6"]
+llm = [
+    "anthropic>=2.0",
+]
 
 [project.urls]
 Homepage = "https://github.com/kongjames/asapproved"
@@ -41,6 +44,7 @@ packages = ["asapproved"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["live: hits public APIs; skipped unless ASAPPROVED_LIVE=1"]
 
 [tool.ruff]
 line-length = 100
