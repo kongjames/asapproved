@@ -1,7 +1,7 @@
-# pharmaagents
+# pharma-agents
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24102334.svg)](https://doi.org/10.5281/zenodo.24102334)
-[![CI](https://github.com/kongjames/pharmaagents/actions/workflows/ci.yml/badge.svg)](https://github.com/kongjames/pharmaagents/actions/workflows/ci.yml)
+[![CI](https://github.com/kongjames/pharma-agents/actions/workflows/ci.yml/badge.svg)](https://github.com/kongjames/pharma-agents/actions/workflows/ci.yml)
 
 **Check that an automated analysis still does what it was shown to do when it was approved.**
 
@@ -9,14 +9,14 @@ In clinical statistical programming an output is validated once: a second progra
 ADaM dataset or the table, listing or figure independently, the two results are compared, and the
 approved version goes into the submission. Then the legacy SAS program is migrated to R, an AI
 assistant rewrites a derivation, or the analysis dataset refreshes, and the output keeps looking
-confident. `pharmaagents` applies the validation discipline the field already has to those new
+confident. `pharma-agents` applies the validation discipline the field already has to those new
 outputs: it re-computes the table from the analysis dataset and a machine-readable recipe, compares
 the approved output and the new output cell by cell within declared tolerances, and writes a
 validation report, with a reviewer's-guide-style trace of every derivation, that a reviewer can
 read, sign and date. The first worked example is a demographics table (the Table 14.1.1 pattern)
 built on public CDISC pilot ADSL data.
 
-> **Scope and disclaimer.** `pharmaagents` is a research and education tool. It is not a validated
+> **Scope and disclaimer.** `pharma-agents` is a research and education tool. It is not a validated
 > system under 21 CFR Part 11 or GAMP 5, it is not endorsed by the FDA or any regulator, and it is not
 > medical advice. It uses public data only; never give it patient or employer data. Validation of a
 > system for regulated use is something your organisation does under its own procedures; this tool
@@ -27,7 +27,7 @@ built on public CDISC pilot ADSL data.
 
 Statistical programmers, biostatisticians and the people who review their work, in these situations:
 
-| You have | `pharmaagents` gives you |
+| You have | `pharma-agents` gives you |
 |---|---|
 | An approved SAS table and the same table from the migrated R program | A cell-by-cell comparison of the two, plus an independent re-computation of both from the ADaM dataset, so a difference is attributed to the migration and not to the approved output |
 | A derivation an AI coding assistant generated or rewrote | Proof that its output agrees with the approved output and reproduces from source, or the exact cells where it does not |
@@ -70,27 +70,27 @@ brief in which every number and claim points at a stored source record. The assu
 checks that brief the same way it checks a table, and a baseline of re-runs lets it flag change
 beyond normal day-to-day variation.
 
-Shipped so far: the loop itself (`pharmaagents research`: plan → fetch → draft → post-check, about a
-hundred lines in `pharmaagents/research/agent.py`), the provider interface (`pharmaagents/llm/`, one
+Shipped so far: the loop itself (`pharma-agents research`: plan → fetch → draft → post-check, about a
+hundred lines in `pharma_agents/research/agent.py`), the provider interface (`pharma_agents/llm/`, one
 `complete()` call; Anthropic and a scripted fake), the source adapters with stored, hashed records
-(`pharmaagents/sources/`: ClinicalTrials.gov API v2, openFDA labels and FAERS counts), and the
-deterministic post-check (`pharmaagents check-brief`). The model sees only the records the adapters
+(`pharma_agents/sources/`: ClinicalTrials.gov API v2, openFDA labels and FAERS counts), and the
+deterministic post-check (`pharma-agents check-brief`). The model sees only the records the adapters
 stored; the check then resolves every citation and every number back to a stored record. What each
 adapter stores and under which terms: [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md). A worked
 example with two deliberate faults: [examples/pharma_brief](examples/pharma_brief/README.md).
 Still to come: the re-run baseline and drift flag.
 
-![Terminal output of pharmaagents check-brief on the shipped example: c3 fails on a wrong enrollment figure, c4 on a record not in the store](assets/cli-check-brief.svg)
+![Terminal output of pharma-agents check-brief on the shipped example: c3 fails on a wrong enrollment figure, c4 on a record not in the store](assets/cli-check-brief.svg)
 
 ## Start using
 
 | You want to | Run |
 |---|---|
-| See it work on the shipped example | `pharmaagents check-table examples/pharma_tlf/recipe.yaml --approved examples/pharma_tlf/approved_sas_table.csv --candidate examples/pharma_tlf/candidate_r_table.csv` |
-| Create an approved baseline from a recipe | `pharmaagents recompute my_recipe.yaml --out approved.csv` |
-| Check a new output against it | `pharmaagents check-table my_recipe.yaml --approved approved.csv --candidate new.csv --reviewer "Name, Role (personal capacity)"` |
-| Check the shipped example brief (no key, no network) | `pharmaagents check-brief examples/pharma_brief/brief.json` |
-| Answer a question from public records and check the brief | `pharmaagents research "What do public records say about X?" --out runs` (needs `pharmaagents[llm]` and an Anthropic credential) |
+| See it work on the shipped example | `pharma-agents check-table examples/pharma_tlf/recipe.yaml --approved examples/pharma_tlf/approved_sas_table.csv --candidate examples/pharma_tlf/candidate_r_table.csv` |
+| Create an approved baseline from a recipe | `pharma-agents recompute my_recipe.yaml --out approved.csv` |
+| Check a new output against it | `pharma-agents check-table my_recipe.yaml --approved approved.csv --candidate new.csv --reviewer "Name, Role (personal capacity)"` |
+| Check the shipped example brief (no key, no network) | `pharma-agents check-brief examples/pharma_brief/brief.json` |
+| Answer a question from public records and check the brief | `pharma-agents research "What do public records say about X?" --out runs` (needs `pharma-agents[llm]` and an Anthropic credential) |
 | Leave a public record of your run | [docs/ADOPTER_WORKFLOW.md](docs/ADOPTER_WORKFLOW.md) |
 
 Exit code `0` = all checks pass; `1` = at least one cell disagrees or one claim is unsupported.
@@ -105,7 +105,7 @@ for a migrated or AI-generated re-implementation, with two deliberate defects: o
 one dropped cell. Both tables were produced for the example; neither came from SAS or R. The expected report is checked in:
 [examples/pharma_tlf/expected_report.md](examples/pharma_tlf/expected_report.md).
 
-![Terminal output of pharmaagents check-table on the shipped example: Check 1 passes, Checks 2 and 3 fail with one mismatch and one missing cell](assets/cli-check-table.svg)
+![Terminal output of pharma-agents check-table on the shipped example: Check 1 passes, Checks 2 and 3 fail with one mismatch and one missing cell](assets/cli-check-table.svg)
 
 ![Excerpt of the validation report: summary table, inputs with dataset hash and row counts, and the two disagreeing cells](assets/report-check-table.svg)
 
@@ -115,9 +115,9 @@ test keeps them in step with the code.
 ## Install
 
 ```bash
-pip install pharmaagents            # library + CLI
-pip install 'pharmaagents[data]'    # + pyreadr, to re-export the pilot data from upstream
-pip install 'pharmaagents[llm]'     # + the Anthropic SDK, for the research agent (the checks never need it)
+pip install pharma-agents            # library + CLI
+pip install 'pharma-agents[data]'    # + pyreadr, to re-export the pilot data from upstream
+pip install 'pharma-agents[llm]'     # + the Anthropic SDK, for the research agent (the checks never need it)
 ```
 Python 3.11 or later. Development: `uv sync --extra dev && uv run pytest`.
 
@@ -138,8 +138,8 @@ See [ADOPTERS.md](ADOPTERS.md). Add a row by pull request after filing a
 `uv run pytest`: unit tests for re-computation, comparison, the provider interface, the source
 adapters (on captured fixtures), the research loop (with the scripted provider) and the post-check;
 golden tests that both shipped examples reproduce their expected reports byte for byte. CI sets
-`PHARMAAGENTS_OFFLINE=1` and never calls a network or a language model; live smoke tests run only
-with `PHARMAAGENTS_LIVE=1`.
+`PHARMA_AGENTS_OFFLINE=1` and never calls a network or a language model; live smoke tests run only
+with `PHARMA_AGENTS_LIVE=1`.
 
 ## AI disclosure, citation, licence
 

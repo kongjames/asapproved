@@ -1,5 +1,5 @@
 name: Validation report
-description: Record a run of pharmaagents on public data, in your own name.
+description: Record a run of pharma-agents on public data, in your own name.
 title: "Validation report: <what you checked>"
 labels: [validation-report]
 body:
@@ -19,8 +19,8 @@ body:
   - type: input
     id: version
     attributes:
-      label: pharmaagents version
-      placeholder: "output of: pharmaagents version"
+      label: pharma-agents version
+      placeholder: "output of: pharma-agents version"
     validations:
       required: true
   - type: textarea

@@ -1,6 +1,6 @@
 # Validation report — Table 14.1.1 — Demographics, safety population (CDISC pilot ADSL)
 
-**Verdict: FAIL** · pharmaagents 0.1.1 · run date 2026-11-07
+**Verdict: FAIL** · pharma-agents 0.1.2 · run date 2026-11-07
 
 ## Summary
 

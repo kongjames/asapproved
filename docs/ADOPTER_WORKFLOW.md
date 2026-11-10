@@ -1,9 +1,9 @@
-# Running pharmaagents and leaving a record (about 45 minutes, public data, personal capacity)
+# Running pharma-agents and leaving a record (about 45 minutes, public data, personal capacity)
 
-1. Install: `pip install pharmaagents` (or use the Dockerfile).
+1. Install: `pip install pharma-agents` (or use the Dockerfile).
 2. Run the shipped example, or point the recipe at your own public dataset and tables:
    ```bash
-   pharmaagents check-table examples/pharma_tlf/recipe.yaml \
+   pharma-agents check-table examples/pharma_tlf/recipe.yaml \
      --approved examples/pharma_tlf/approved_sas_table.csv \
      --candidate examples/pharma_tlf/candidate_r_table.csv \
      --reviewer "Your Name, Your Role (personal capacity)" --out report.md

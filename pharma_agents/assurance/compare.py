@@ -7,7 +7,7 @@ from dataclasses import asdict, dataclass
 
 import pandas as pd
 
-from pharmaagents.schema.artifact import TABLE_COLUMNS, TABLE_KEY, Tolerances
+from pharma_agents.schema.artifact import TABLE_COLUMNS, TABLE_KEY, Tolerances
 
 
 @dataclass

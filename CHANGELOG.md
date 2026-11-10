@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.2 — 2026-11-10
+
+- **Renamed** `pharmaagents` → `pharma-agents`. Repository, PyPI name and CLI command are
+  `pharma-agents`; the import name is `pharma_agents`; environment variables are
+  `PHARMA_AGENTS_OFFLINE` and `PHARMA_AGENTS_LIVE`. No behaviour change.
+- `CITATION.cff` `doi:` now carries the concept DOI (10.5281/zenodo.24102334), which resolves to
+  the latest archived release; version DOIs are listed under `identifiers`.
+
 ## 0.1.1 — 2026-11-10
 
 - **Renamed** from `asapproved` to `pharmaagents`: package, CLI command, environment variables
@@ -13,13 +21,13 @@
 
 First release.
 
-- **Assurance agent, tables.** `pharmaagents recompute` derives a table from a recipe and dataset;
-  `pharmaagents check-table` compares the approved output and a candidate against that
+- **Assurance agent, tables.** `asapproved recompute` derives a table from a recipe and dataset;
+  `asapproved check-table` compares the approved output and a candidate against that
   re-computation and against each other, cell by cell within declared tolerances, and writes a
   Markdown report with a trace appendix and a signature block. No API key, no network.
-- **Research agent, briefs.** `pharmaagents research` plans queries against ClinicalTrials.gov
+- **Research agent, briefs.** `asapproved research` plans queries against ClinicalTrials.gov
   (API v2) and openFDA (labels, FAERS counts), stores every record with a SHA-256, drafts claims
-  from the stored records only, and post-checks them. `pharmaagents check-brief` re-runs the
+  from the stored records only, and post-checks them. `asapproved check-brief` re-runs the
   deterministic C1 citation trace and C2 number trace on any saved brief without a model or a
   network. Provider interface with an Anthropic implementation and a scripted fake for tests.
 - **Worked examples.** `examples/pharma_tlf` (public CDISC pilot ADSL via pharmaverseadam, a

@@ -16,5 +16,5 @@
 <text x="20" y="216" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0969da" text-anchor="start">Checked by</text>
 <text x="120" y="216" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">C1 citation trace · C2 number trace (deterministic)</text>
 <line x1="20" y1="238" x2="450" y2="238" stroke="#d0d7de"/>
-<text x="20" y="262" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start">pharmaagents research "…" --out runs  ·  pharmaagents check-brief brief.json</text>
+<text x="20" y="262" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start">pharma-agents research "…" --out runs  ·  pharma-agents check-brief brief.json</text>
 </svg>

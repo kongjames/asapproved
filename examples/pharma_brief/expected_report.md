@@ -1,6 +1,6 @@
 # Evidence brief — What do public records say about metformin hydrochloride in type 2 diabetes: completed trials, the label's boxed warning, and the most reported adverse events?
 
-**Verdict: FAIL** · pharmaagents 0.1.1 · run example · provider hand-written (not model output) (n/a) · checked 2026-11-07
+**Verdict: FAIL** · pharma-agents 0.1.2 · run example · provider hand-written (not model output) (n/a) · checked 2026-11-07
 
 ## Check
 

@@ -96,7 +96,7 @@
   "run_meta": {
     "run_id": "example",
     "created_at": "2026-11-07T22:00:00+00:00",
-    "tool_version": "0.1.1",
+    "tool_version": "0.1.2",
     "provider": "hand-written (not model output)",
     "model_id": "n/a",
     "usage": {},

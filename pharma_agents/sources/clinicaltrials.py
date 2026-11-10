@@ -11,8 +11,8 @@ import urllib.parse
 from collections.abc import Callable
 from typing import Any
 
-from pharmaagents.sources.base import SourceRecord
-from pharmaagents.sources.http import fetch_json
+from pharma_agents.sources.base import SourceRecord
+from pharma_agents.sources.http import fetch_json
 
 BASE = "https://clinicaltrials.gov/api/v2/studies"
 FIELDS = [

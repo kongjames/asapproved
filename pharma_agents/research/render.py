@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from pharmaagents.schema.brief import BriefCheck, EvidenceBrief
-from pharmaagents.sources.base import SourceRecord
+from pharma_agents.schema.brief import BriefCheck, EvidenceBrief
+from pharma_agents.sources.base import SourceRecord
 
 LIMITS = (
     "This check shows that every cited record exists in the run's store and that every number in a "
@@ -28,7 +28,7 @@ def brief_to_markdown(
     L.append("")
     head = f"**Verdict: {check.verdict}**"
     if meta:
-        head += f" · pharmaagents {meta.tool_version} · run {meta.run_id} · provider {meta.provider} ({meta.model_id})"
+        head += f" · pharma-agents {meta.tool_version} · run {meta.run_id} · provider {meta.provider} ({meta.model_id})"
     if run_date:
         head += f" · checked {run_date}"
     L.append(head)

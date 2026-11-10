@@ -6,7 +6,7 @@ from pathlib import Path
 
 import typer
 
-from pharmaagents import __version__
+from pharma_agents import __version__
 
 app = typer.Typer(no_args_is_help=True, add_completion=False,
                   help="Check that an automated analysis still does what it was shown to do when it was approved.")
@@ -14,7 +14,7 @@ app = typer.Typer(no_args_is_help=True, add_completion=False,
 
 @app.command()
 def version() -> None:
-    typer.echo(f"pharmaagents {__version__}")
+    typer.echo(f"pharma-agents {__version__}")
 
 
 @app.command("recompute")
@@ -23,9 +23,9 @@ def recompute_cmd(
     out: Path = typer.Option(Path("table.csv"), "--out", "-o", help="where to write the long-format table"),
 ) -> None:
     """Derive a table from a recipe and its dataset (use this to create an approved baseline)."""
-    from pharmaagents.assurance.recompute import recompute
-    from pharmaagents.data.cdisc_pilot import load_csv
-    from pharmaagents.schema.artifact import Recipe
+    from pharma_agents.assurance.recompute import recompute
+    from pharma_agents.data.cdisc_pilot import load_csv
+    from pharma_agents.schema.artifact import Recipe
 
     r = Recipe.load(recipe)
     table, trace = recompute(r, load_csv(r.dataset_path), str(r.dataset_path))
@@ -45,8 +45,8 @@ def check_table(
     date: str | None = typer.Option(None, "--date", help="override run date (YYYY-MM-DD), for reproducible reports"),
 ) -> None:
     """Re-compute the table from source and compare approved and candidate outputs cell by cell."""
-    from pharmaagents.assurance.agent import run_check_table
-    from pharmaagents.assurance.render import to_markdown
+    from pharma_agents.assurance.agent import run_check_table
+    from pharma_agents.assurance.render import to_markdown
 
     report = run_check_table(recipe, approved, candidate, reviewer=reviewer, notes=notes, run_date=date)
     out.write_text(to_markdown(report))
@@ -72,15 +72,15 @@ def research_cmd(
     """Plan, fetch public records, draft a brief, then post-check it. Exit 1 if any claim is unsupported."""
     import json
 
-    from pharmaagents.research.agent import ResearchAgent
+    from pharma_agents.research.agent import ResearchAgent
 
     if provider == "fake":
-        from pharmaagents.llm.fake import FakeProvider
+        from pharma_agents.llm.fake import FakeProvider
 
         responses = json.loads(script.read_text()) if script else []
         prov = FakeProvider(responses)
     elif provider == "anthropic":
-        from pharmaagents.llm.anthropic import DEFAULT_MODEL, AnthropicProvider
+        from pharma_agents.llm.anthropic import DEFAULT_MODEL, AnthropicProvider
 
         prov = AnthropicProvider(model or DEFAULT_MODEL, effort=effort)
     else:
@@ -104,10 +104,10 @@ def check_brief_cmd(
     """Re-run the deterministic checks on a brief against its stored records. No model, no network."""
     import datetime as dt
 
-    from pharmaagents.research.postcheck import check_brief
-    from pharmaagents.research.render import brief_to_markdown
-    from pharmaagents.schema.brief import EvidenceBrief
-    from pharmaagents.sources.base import RecordStore
+    from pharma_agents.research.postcheck import check_brief
+    from pharma_agents.research.render import brief_to_markdown
+    from pharma_agents.schema.brief import EvidenceBrief
+    from pharma_agents.sources.base import RecordStore
 
     store = RecordStore(records or brief.parent / "records")
     b = EvidenceBrief.model_validate_json(brief.read_text(encoding="utf-8"))

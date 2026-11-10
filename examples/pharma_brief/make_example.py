@@ -10,13 +10,13 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from pharmaagents import __version__
-from pharmaagents.research.postcheck import check_brief
-from pharmaagents.research.render import brief_to_markdown
-from pharmaagents.schema.brief import Claim, EvidenceBrief, NumberRef, RunMeta, SearchQuery
-from pharmaagents.sources.base import RecordStore
-from pharmaagents.sources.clinicaltrials import ClinicalTrialsAdapter
-from pharmaagents.sources.openfda import OpenFDAAdapter
+from pharma_agents import __version__
+from pharma_agents.research.postcheck import check_brief
+from pharma_agents.research.render import brief_to_markdown
+from pharma_agents.schema.brief import Claim, EvidenceBrief, NumberRef, RunMeta, SearchQuery
+from pharma_agents.sources.base import RecordStore
+from pharma_agents.sources.clinicaltrials import ClinicalTrialsAdapter
+from pharma_agents.sources.openfda import OpenFDAAdapter
 
 ROOT = Path(__file__).resolve().parents[2]
 FIX = ROOT / "tests" / "fixtures"

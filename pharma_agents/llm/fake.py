@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 from typing import Any
 
-from pharmaagents.llm.base import Completion, Message, ProviderError
+from pharma_agents.llm.base import Completion, Message, ProviderError
 
 
 class FakeProvider:

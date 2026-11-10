@@ -65,7 +65,7 @@ MARKER = (f'<defs><marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY
 def schema() -> str:
     W, H = 960, 430
     b: list[str] = [MARKER]
-    b.append(text(24, 34, "pharmaagents — two agents, one job", size=18, weight="700"))
+    b.append(text(24, 34, "pharma-agents — two agents, one job", size=18, weight="700"))
     b.append(text(24, 56, "Does the output still agree with what was approved, and does it reproduce from its source?",
                   size=13, fill=MUTED))
 
@@ -109,7 +109,7 @@ def schema() -> str:
 
     b.append(text(24, H - 22, "Deterministic parts: re-compute, compare, post-check. Model parts: plan, draft. Exit 1 on any disagreement.",
                   size=12, fill=MUTED))
-    return svg(W, H, b, "pharmaagents schema: assurance agent checks tables; research agent produces briefs the same checks verify")
+    return svg(W, H, b, "pharma-agents schema: assurance agent checks tables; research agent produces briefs the same checks verify")
 
 
 # ---------------------------------------------------------------- role cards
@@ -138,7 +138,7 @@ def assurance_card() -> str:
          ("Output", "Markdown report: diffs, trace, limits, signature"),
          ("Catches", "changed values, dropped cells, extra cells"),
          ("Cannot", "judge whether the recipe is the right analysis")],
-        "pharmaagents check-table recipe.yaml --approved a.csv --candidate c.csv",
+        "pharma-agents check-table recipe.yaml --approved a.csv --candidate c.csv",
         "Assurance agent role card")
 
 
@@ -150,13 +150,13 @@ def research_card() -> str:
          ("Sees", "only the records it stored, when drafting"),
          ("Output", "brief with every number pointed at a stored record"),
          ("Checked by", "C1 citation trace · C2 number trace (deterministic)")],
-        "pharmaagents research \"…\" --out runs  ·  pharmaagents check-brief brief.json",
+        "pharma-agents research \"…\" --out runs  ·  pharma-agents check-brief brief.json",
         "Research agent role card")
 
 
 # ---------------------------------------------------------------- terminal panels
 CHECK_TABLE_OUT = [
-    ("$", "pharmaagents check-table examples/pharma_tlf/recipe.yaml \\"),
+    ("$", "pharma-agents check-table examples/pharma_tlf/recipe.yaml \\"),
     ("", "    --approved examples/pharma_tlf/approved_sas_table.csv \\"),
     ("", "    --candidate examples/pharma_tlf/candidate_r_table.csv --out report.md"),
     ("PASS", "Check 1 — approved output vs independent re-computation: 80 match, 0 mismatch, 0 missing, 0 unexpected"),
@@ -168,7 +168,7 @@ CHECK_TABLE_OUT = [
 ]
 
 CHECK_BRIEF_OUT = [
-    ("$", "pharmaagents check-brief examples/pharma_brief/brief.json --out brief_report.md"),
+    ("$", "pharma-agents check-brief examples/pharma_brief/brief.json --out brief_report.md"),
     ("OK", "c1: supported"),
     ("OK", "c2: supported"),
     ("FAIL", "c3: number 90 ≠ 89 at NCT02401880.enrollment_count"),
@@ -215,7 +215,7 @@ def report_panel() -> str:
                   size=16, weight="700"))
     b.append(text(24, 60, "Verdict: ", size=13, fill=MUTED))
     b.append(text(82, 60, "FAIL", size=13, fill=RED, weight="700"))
-    b.append(text(122, 60, "· pharmaagents 0.1.1 · run date 2026-11-07", size=13, fill=MUTED))
+    b.append(text(122, 60, "· pharma-agents 0.1.2 · run date 2026-11-07", size=13, fill=MUTED))
 
     # summary table
     y = 96
@@ -275,8 +275,8 @@ OUTPUTS = {
     "schema.svg": schema,
     "assurance-agent.svg": assurance_card,
     "research-agent.svg": research_card,
-    "cli-check-table.svg": lambda: terminal(CHECK_TABLE_OUT, "pharmaagents check-table — shipped example, two planted defects"),
-    "cli-check-brief.svg": lambda: terminal(CHECK_BRIEF_OUT, "pharmaagents check-brief — shipped example, two planted faults"),
+    "cli-check-table.svg": lambda: terminal(CHECK_TABLE_OUT, "pharma-agents check-table — shipped example, two planted defects"),
+    "cli-check-brief.svg": lambda: terminal(CHECK_BRIEF_OUT, "pharma-agents check-brief — shipped example, two planted faults"),
     "report-check-table.svg": report_panel,
 }
 

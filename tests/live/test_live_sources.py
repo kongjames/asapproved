@@ -1,12 +1,12 @@
-"""Live smoke tests. Skipped unless PHARMAAGENTS_LIVE=1; never run in CI."""
+"""Live smoke tests. Skipped unless PHARMA_AGENTS_LIVE=1; never run in CI."""
 
 import os
 
 import pytest
 
-from pharmaagents.sources import ClinicalTrialsAdapter, OpenFDAAdapter
+from pharma_agents.sources import ClinicalTrialsAdapter, OpenFDAAdapter
 
-pytestmark = pytest.mark.skipif(os.environ.get("PHARMAAGENTS_LIVE") != "1", reason="set PHARMAAGENTS_LIVE=1 to hit the network")
+pytestmark = pytest.mark.skipif(os.environ.get("PHARMA_AGENTS_LIVE") != "1", reason="set PHARMA_AGENTS_LIVE=1 to hit the network")
 
 
 @pytest.mark.live

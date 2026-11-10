@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from pharmaagents.schema.report import ValidationReport
+from pharma_agents.schema.report import ValidationReport
 
 LIMITS = (
     "This report shows whether the tables agree with each other and with an independent "

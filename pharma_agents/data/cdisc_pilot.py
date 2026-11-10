@@ -29,13 +29,13 @@ def load_csv(path: str | Path) -> pd.DataFrame:
 
 
 def fetch_adsl(dest: str | Path, url: str = ADSL_URL, columns: list[str] | None = None) -> Path:
-    """Download pharmaverseadam's ADSL and write it as CSV (requires ``pip install pharmaagents[data]``)."""
+    """Download pharmaverseadam's ADSL and write it as CSV (requires ``pip install pharma-agents[data]``)."""
     import urllib.request
 
     try:
         import pyreadr  # type: ignore
     except ImportError as exc:  # pragma: no cover - exercised only without the extra
-        raise SystemExit("pyreadr is required: pip install 'pharmaagents[data]'") from exc
+        raise SystemExit("pyreadr is required: pip install 'pharma-agents[data]'") from exc
 
     dest = Path(dest)
     dest.parent.mkdir(parents=True, exist_ok=True)

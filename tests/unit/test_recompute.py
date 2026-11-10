@@ -1,7 +1,7 @@
 import pandas as pd
 
-from pharmaagents.assurance.recompute import recompute
-from pharmaagents.schema.artifact import Recipe
+from pharma_agents.assurance.recompute import recompute
+from pharma_agents.schema.artifact import Recipe
 
 
 def _recipe(**over):

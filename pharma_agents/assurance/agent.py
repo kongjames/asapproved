@@ -13,12 +13,12 @@ from pathlib import Path
 
 import pandas as pd
 
-from pharmaagents import __version__
-from pharmaagents.assurance.compare import CellDiff, compare_tables
-from pharmaagents.assurance.recompute import recompute
-from pharmaagents.data.cdisc_pilot import load_csv, sha256_of
-from pharmaagents.schema.artifact import Recipe
-from pharmaagents.schema.report import CheckSummary, ValidationReport
+from pharma_agents import __version__
+from pharma_agents.assurance.compare import CellDiff, compare_tables
+from pharma_agents.assurance.recompute import recompute
+from pharma_agents.data.cdisc_pilot import load_csv, sha256_of
+from pharma_agents.schema.artifact import Recipe
+from pharma_agents.schema.report import CheckSummary, ValidationReport
 
 
 def _display(path: str | Path, base: Path) -> str:

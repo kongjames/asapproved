@@ -1,7 +1,7 @@
 # Example: an evidence brief with two deliberate faults
 
 ## What this shows
-`pharmaagents check-brief` on a brief whose every claim cites stored public records. Two claims are
+`pharma-agents check-brief` on a brief whose every claim cites stored public records. Two claims are
 wrong on purpose: **c3** states an enrollment of 90 where the stored ClinicalTrials.gov record says
 89, and **c4** cites a registry entry that was never fetched. Both are flagged, the brief fails,
 and the report shows exactly why. Claim **c1** also carries a warning: "phase 1" is a figure in
@@ -13,15 +13,15 @@ the declared fields.
 
 ## How to run
 ```bash
-pharmaagents check-brief examples/pharma_brief/brief.json --reviewer "Your Name, Role (personal capacity)"
+pharma-agents check-brief examples/pharma_brief/brief.json --reviewer "Your Name, Role (personal capacity)"
 ```
 Exit code 1 and `brief_report.md` next to you. No API key, no network.
 
-To produce a brief of your own from live public records (needs `pip install 'pharmaagents[llm]'` and an
+To produce a brief of your own from live public records (needs `pip install 'pharma-agents[llm]'` and an
 Anthropic credential in the environment):
 ```bash
-pharmaagents research "What do public records say about metformin hydrochloride in type 2 diabetes?" --out runs
-pharmaagents check-brief runs/<run-id>/brief.json
+pharma-agents research "What do public records say about metformin hydrochloride in type 2 diabetes?" --out runs
+pharma-agents check-brief runs/<run-id>/brief.json
 ```
 
 ## How it works
