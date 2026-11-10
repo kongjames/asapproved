@@ -15,5 +15,8 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.24102335
     description: "Version 0.1.1 (named pharmaagents)"
+  - type: doi
+    value: 10.5281/zenodo.24102578
+    description: "Version 0.1.2"
 version: 0.1.2
 date-released: 2026-11-10

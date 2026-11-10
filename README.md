@@ -145,4 +145,4 @@ with `PHARMA_AGENTS_LIVE=1`.
 
 Built with AI assistance and reviewed line by line: [AI_DISCLOSURE.md](AI_DISCLOSURE.md).
 Cite with [CITATION.cff](CITATION.cff); the archive of every release is at
-[doi:10.5281/zenodo.24102334](https://doi.org/10.5281/zenodo.24102334) (this version: 10.5281/zenodo.24102335). Apache-2.0, see [LICENSE](LICENSE) and [NOTICE](NOTICE).
+[doi:10.5281/zenodo.24102334](https://doi.org/10.5281/zenodo.24102334) (this version: 10.5281/zenodo.24102578). Apache-2.0, see [LICENSE](LICENSE) and [NOTICE](NOTICE).

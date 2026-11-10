@@ -7,6 +7,7 @@
   `PHARMA_AGENTS_OFFLINE` and `PHARMA_AGENTS_LIVE`. No behaviour change.
 - `CITATION.cff` `doi:` now carries the concept DOI (10.5281/zenodo.24102334), which resolves to
   the latest archived release; version DOIs are listed under `identifiers`.
+- Archived at Zenodo as 10.5281/zenodo.24102578.
 
 ## 0.1.1 — 2026-11-10
 
