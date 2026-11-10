@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="470" height="290" viewBox="0 0 470 290" role="img" aria-labelledby="t">
+<title id="t">Research agent role card</title>
+<rect width="470" height="290" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="0" y="0" width="470" height="64" rx="10" fill="#f6f8fa"/>
+<rect x="0" y="40" width="470" height="24" fill="#f6f8fa"/>
+<text x="20" y="30" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#1f2328" text-anchor="start">Research agent</text>
+<text x="20" y="52" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start">what the assurance agent checks · v0.1 loop shipped · model-driven</text>
+<text x="20" y="96" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0969da" text-anchor="start">Input</text>
+<text x="120" y="96" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">a question, in plain words</text>
+<text x="20" y="126" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0969da" text-anchor="start">Does</text>
+<text x="120" y="126" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">plans queries, fetches public records, drafts claims</text>
+<text x="20" y="156" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0969da" text-anchor="start">Sees</text>
+<text x="120" y="156" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">only the records it stored, when drafting</text>
+<text x="20" y="186" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0969da" text-anchor="start">Output</text>
+<text x="120" y="186" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">brief with every number pointed at a stored record</text>
+<text x="20" y="216" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0969da" text-anchor="start">Checked by</text>
+<text x="120" y="216" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">C1 citation trace · C2 number trace (deterministic)</text>
+<line x1="20" y1="238" x2="450" y2="238" stroke="#d0d7de"/>
+<text x="20" y="262" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start">asapproved research "…" --out runs  ·  asapproved check-brief brief.json</text>
+</svg>

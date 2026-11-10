@@ -17,7 +17,14 @@ clinical-trial demographics table built on public CDISC pilot data.
 
 ## How it works
 
-Two agents, one job.
+![Schema: the assurance agent re-computes and compares tables; the research agent produces briefs that the same deterministic checks verify](assets/schema.svg)
+
+Two agents, one job. What each check computes, step by step, is in [docs/METHOD.md](docs/METHOD.md).
+
+<table><tr>
+<td><img src="assets/assurance-agent.svg" alt="Assurance agent role card" width="470"></td>
+<td><img src="assets/research-agent.svg" alt="Research agent role card" width="470"></td>
+</tr></table>
 
 ### Assurance agent (v0.1 — shipped, no API key needed)
 Given a **recipe** (how a table is derived) and a **dataset**, it:
@@ -27,7 +34,7 @@ Given a **recipe** (how a table is derived) and a **dataset**, it:
 4. writes a Markdown report: summary, every disagreeing cell, a trace of each derivation, limits,
    and a signature block.
 
-### Research agent (v0.2 — in progress)
+### Research agent (loop shipped; re-run baseline and drift flag in v0.2)
 Answers a question from public sources only (ClinicalTrials.gov, openFDA, PubMed) and produces a
 brief in which every number and claim points at a stored source record. The assurance agent then
 checks that brief the same way it checks a table, and a baseline of re-runs lets it flag change
@@ -42,6 +49,8 @@ stored; the check then resolves every citation and every number back to a stored
 adapter stores and under which terms: [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md). A worked
 example with two deliberate faults: [examples/pharma_brief](examples/pharma_brief/README.md).
 Still to come: the re-run baseline and drift flag.
+
+![Terminal output of asapproved check-brief on the shipped example: c3 fails on a wrong enrollment figure, c4 on a record not in the store](assets/cli-check-brief.svg)
 
 ## Start using
 
@@ -63,6 +72,13 @@ SEX/RACE/age-group counts), a column subset of the public CDISC pilot **ADSL** d
 [pharmaverseadam](https://github.com/pharmaverse/pharmaverseadam), Apache-2.0), an approved table,
 and a candidate table with two deliberate defects. The expected report is checked in:
 [examples/pharma_tlf/expected_report.md](examples/pharma_tlf/expected_report.md).
+
+![Terminal output of asapproved check-table on the shipped example: Check 1 passes, Checks 2 and 3 fail with one mismatch and one missing cell](assets/cli-check-table.svg)
+
+![Excerpt of the validation report: summary table, inputs with dataset hash and row counts, and the two disagreeing cells](assets/report-check-table.svg)
+
+The images are SVG generated from the real CLI output and report by `assets/make_assets.py`; a
+test keeps them in step with the code.
 
 ## Install
 

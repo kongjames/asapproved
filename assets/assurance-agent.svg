@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="470" height="290" viewBox="0 0 470 290" role="img" aria-labelledby="t">
+<title id="t">Assurance agent role card</title>
+<rect width="470" height="290" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+<rect x="0" y="0" width="470" height="64" rx="10" fill="#f6f8fa"/>
+<rect x="0" y="40" width="470" height="24" fill="#f6f8fa"/>
+<text x="20" y="30" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#1f2328" text-anchor="start">Assurance agent</text>
+<text x="20" y="52" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start">the endeavor · v0.1 shipped · deterministic · no API key</text>
+<text x="20" y="96" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0969da" text-anchor="start">Input</text>
+<text x="120" y="96" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">recipe + dataset + approved table (+ candidate)</text>
+<text x="20" y="126" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0969da" text-anchor="start">Does</text>
+<text x="120" y="126" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">re-computes, then compares cell by cell</text>
+<text x="20" y="156" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0969da" text-anchor="start">Output</text>
+<text x="120" y="156" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Markdown report: diffs, trace, limits, signature</text>
+<text x="20" y="186" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0969da" text-anchor="start">Catches</text>
+<text x="120" y="186" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">changed values, dropped cells, extra cells</text>
+<text x="20" y="216" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0969da" text-anchor="start">Cannot</text>
+<text x="120" y="216" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">judge whether the recipe is the right analysis</text>
+<line x1="20" y1="238" x2="450" y2="238" stroke="#d0d7de"/>
+<text x="20" y="262" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start">asapproved check-table recipe.yaml --approved a.csv --candidate c.csv</text>
+</svg>
