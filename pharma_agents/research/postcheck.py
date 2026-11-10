@@ -17,7 +17,7 @@ from pharma_agents.sources.base import SourceRecord
 _INDEX = re.compile(r"^([^\[\]]*)((?:\[\d+\])*)$")
 # a standalone figure: not part of an identifier (NCT0123), a date (2026-08-12) or a version string
 # a trailing "." is allowed (sentence end) unless it starts a decimal part
-_FIGURE = re.compile(r"(?<![A-Za-z0-9.\-])\d[\d,]*(?:\.\d+)?(?![A-Za-z0-9\-]|\.\d)")
+_FIGURE = re.compile(r"(?<![A-Za-z0-9.\-])\d(?:[\d,]*\d)?(?:\.\d+)?(?![A-Za-z0-9\-]|\.\d)")
 
 
 def resolve_path(payload: Any, path: str) -> Any:
