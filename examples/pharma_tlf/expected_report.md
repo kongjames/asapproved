@@ -1,6 +1,6 @@
 # Validation report — Table 14.1.1 — Demographics, safety population (CDISC pilot ADSL)
 
-**Verdict: FAIL** · asapproved 0.1.0.dev0 · run date 2026-11-07
+**Verdict: FAIL** · asapproved 0.1.0 · run date 2026-11-07
 
 ## Summary
 

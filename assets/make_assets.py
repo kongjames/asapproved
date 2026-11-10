@@ -215,7 +215,7 @@ def report_panel() -> str:
                   size=16, weight="700"))
     b.append(text(24, 60, "Verdict: ", size=13, fill=MUTED))
     b.append(text(82, 60, "FAIL", size=13, fill=RED, weight="700"))
-    b.append(text(122, 60, "· asapproved 0.1.0.dev0 · run date 2026-11-07", size=13, fill=MUTED))
+    b.append(text(122, 60, "· asapproved 0.1.0 · run date 2026-11-07", size=13, fill=MUTED))
 
     # summary table
     y = 96
