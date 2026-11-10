@@ -17,6 +17,10 @@ will use an informal reference interval built from re-runs, which detects change
 - The post-check proves that each cited record is in the run's store and that each declared number
   is at the stated path in that record. It does not prove the records are complete, current or
   correct, or that the claim is the right reading of them.
+- The check has three blind spots, measured in `docs/EVALS.md` (E3): a real number cited to the
+  wrong record, a real number the text misreads, and text that states a figure other than the one
+  declared (that one draws a warning). A reviewer is the control for these; a model-judged check
+  (C3) is planned and will be labelled as a model's opinion.
 - Only declared numbers are checked. A figure in claim text without a `numbers` entry is reported
   as a warning. The summary is prose and is not checked at all; the renderer notes when it contains
   digits.

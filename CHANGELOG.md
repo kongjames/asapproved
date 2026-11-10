@@ -3,7 +3,9 @@
 ## Unreleased
 
 - Evals: DuckDB SQL oracle for the example recipe (`tests/oracle/`) and a fault-injection
-  harness (`evals/fault_injection.py`, results in `evals/RESULTS.md`); both run in CI. `docs/EVALS.md`.
+  harness (`evals/fault_injection.py`, results in `evals/RESULTS.md`); a labelled fault corpus for the
+  brief post-check (`evals/postcheck_corpus.py`, `evals/RESULTS_POSTCHECK.md`) that also pins three
+  blind spots; all run in CI. `docs/EVALS.md`; blind spots stated in `docs/LIMITS.md`.
 
 ## 0.1.2 — 2026-11-10
 

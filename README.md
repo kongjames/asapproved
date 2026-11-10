@@ -140,7 +140,9 @@ adapters (on captured fixtures), the research loop (with the scripted provider) 
 golden tests that both shipped examples reproduce their expected reports byte for byte. Two evaluations go further and run in CI too: an **independent SQL oracle** (DuckDB,
 no pandas) agrees with the re-computation on all 80 cells of the example before rounding, and a
 **fault-injection run** over 1,000 single mutations of the candidate table caught 600 of 600 that
-must fail with 0 of 400 false alarms. Details and limits: [docs/EVALS.md](docs/EVALS.md). CI sets
+must fail with 0 of 400 false alarms; a **labelled fault corpus** for the brief post-check caught 60 of 60
+built-in faults with 0 false alarms and measures three blind spots the trace cannot see. Details and
+limits: [docs/EVALS.md](docs/EVALS.md). CI sets
 `PHARMA_AGENTS_OFFLINE=1` and never calls a network or a language model; live smoke tests run only
 with `PHARMA_AGENTS_LIVE=1`.
 
