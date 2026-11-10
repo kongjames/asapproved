@@ -12,16 +12,16 @@ Run 2026-11-10 · pharma-agents 0.1.2 · 10 claims per kind · seed = 3 · recor
 | `number_in_ghost_record` | unsupported | 0 | 10 | 0 | a number cites a record that is not in the store |
 | `wrong_path` | unsupported | 0 | 10 | 0 | the path does not exist in the record |
 | `non_numeric_path` | unsupported | 0 | 10 | 0 | the path exists but holds text |
-| `no_citation` | unsupported | 0 | 10 | 0 | the claim cites no record at all |
+| `no_citation` | unsupported | 0 | 10 | 10 | the claim cites no record at all |
 | `right_number_wrong_record` | supported (by design: the check cannot see this) | 10 | 0 | 0 | text is about study A; the number is real but taken from study B and cited to B |
 | `wrong_reading` | supported (by design: the check cannot see this) | 10 | 0 | 0 | the number is real and traced, but the text says it means something it does not |
-| `text_contradicts_declared` | supported (by design: the check cannot see this) | 10 | 0 | 0 | the text states a different figure than the declared number (warning only) |
+| `text_contradicts_declared` | supported (by design: the check cannot see this) | 10 | 0 | 10 | the text states a different figure than the declared number (warning only) |
 
 **Catch rate** on faults the check is built to catch: 60/60
 
 **False alarms** on correct claims: 0/30
 
-**Blind spots** passed as supported, by design: 30/30 (`text_contradicts_declared` warned on 0/10)
+**Blind spots** passed as supported, by design: 30/30 (`text_contradicts_declared` warned on 10/10)
 
 No unexpected verdicts.
 

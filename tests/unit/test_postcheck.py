@@ -68,3 +68,11 @@ def test_undeclared_figures_warn_but_do_not_fail():
                           "figure 24 appears in the text but is not declared in numbers",
                           "figure 4,000 appears in the text but is not declared in numbers"]
     assert chk.undeclared_numbers == 3
+
+
+def test_undeclared_figure_at_sentence_end_is_warned():
+    """Found by the E3 corpus: a figure followed by a full stop was not seen by the warning regex."""
+    from pharma_agents.research.postcheck import _FIGURE
+
+    assert _FIGURE.findall("The study enrolled 95.") == ["95"]
+    assert _FIGURE.findall("Mean age 73.78. Version 6, effective 2026-08-12; NCT02401880.") == ["73.78", "6"]

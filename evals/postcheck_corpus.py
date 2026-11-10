@@ -147,8 +147,8 @@ def render(status, warned, wrong, summary, per_type, seed) -> str:
     blind_passed = sum(status[(k, "supported")] for k in blind)
     L += ["", f"**Catch rate** on faults the check is built to catch: {caught}/{per_type * len(must_fail)}",
           "", f"**False alarms** on correct claims: {fa}/{per_type * len(must_pass)}",
-          "", f"**Blind spots** passed as supported, by design: {blind_passed}/{per_type * len(blind)} "
-              f"(`text_contradicts_declared` warned on {warned['text_contradicts_declared']}/{per_type})", ""]
+          "", (f"**Blind spots** passed as supported, by design: {blind_passed}/{per_type * len(blind)} "
+               f"(`text_contradicts_declared` warned on {warned['text_contradicts_declared']}/{per_type})"), ""]
     if wrong:
         L += ["Unexpected verdicts:", ""] + [f"- `{w['id']}`: expected {w['expected']}, got {w['got']} {w['reasons']}" for w in wrong[:50]]
     else:
