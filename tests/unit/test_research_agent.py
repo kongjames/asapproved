@@ -1,10 +1,10 @@
 import json
 from pathlib import Path
 
-from asapproved.llm.fake import FakeProvider
-from asapproved.research.agent import ResearchAgent, records_for_model
-from asapproved.sources.clinicaltrials import ClinicalTrialsAdapter
-from asapproved.sources.openfda import OpenFDAAdapter
+from pharmaagents.llm.fake import FakeProvider
+from pharmaagents.research.agent import ResearchAgent, records_for_model
+from pharmaagents.sources.clinicaltrials import ClinicalTrialsAdapter
+from pharmaagents.sources.openfda import OpenFDAAdapter
 
 FIX = Path(__file__).resolve().parents[1] / "fixtures"
 
@@ -33,7 +33,7 @@ DRAFT = {"summary": "Trials and reports were found.", "claims": [
 
 
 def test_end_to_end_with_fake_provider(tmp_path, monkeypatch):
-    monkeypatch.setenv("ASAPPROVED_OFFLINE", "1")  # adapters below use fixture fetchers, so nothing hits the network
+    monkeypatch.setenv("PHARMAAGENTS_OFFLINE", "1")  # adapters below use fixture fetchers, so nothing hits the network
     prov = FakeProvider([PLAN, DRAFT])
     agent = ResearchAgent(prov, tmp_path, run_id="t1",
                           clinicaltrials=ClinicalTrialsAdapter(fetch=lambda u: _fx("ctgov_studies.json")),

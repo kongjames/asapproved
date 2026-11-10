@@ -13,12 +13,12 @@ import json
 from pathlib import Path
 from typing import Any
 
-from asapproved import __version__
-from asapproved.llm.base import Provider
-from asapproved.research import prompts
-from asapproved.research.postcheck import check_brief
-from asapproved.research.render import brief_to_markdown
-from asapproved.schema.brief import (
+from pharmaagents import __version__
+from pharmaagents.llm.base import Provider
+from pharmaagents.research import prompts
+from pharmaagents.research.postcheck import check_brief
+from pharmaagents.research.render import brief_to_markdown
+from pharmaagents.schema.brief import (
     BriefCheck,
     Claim,
     EvidenceBrief,
@@ -26,9 +26,9 @@ from asapproved.schema.brief import (
     RunMeta,
     SearchQuery,
 )
-from asapproved.sources.base import RecordStore, SourceRecord
-from asapproved.sources.clinicaltrials import ClinicalTrialsAdapter
-from asapproved.sources.openfda import OpenFDAAdapter
+from pharmaagents.sources.base import RecordStore, SourceRecord
+from pharmaagents.sources.clinicaltrials import ClinicalTrialsAdapter
+from pharmaagents.sources.openfda import OpenFDAAdapter
 
 _PLAN_PARAM_KEYS = ("condition", "intervention", "status", "generic_name", "limit")
 _LIMITS = {"clinicaltrials.search": 10, "openfda.labels": 2, "openfda.event_counts": 10}

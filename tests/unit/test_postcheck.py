@@ -1,8 +1,8 @@
 import pytest
 
-from asapproved.research.postcheck import check_brief, resolve_path
-from asapproved.schema.brief import Claim, EvidenceBrief, NumberRef
-from asapproved.sources.base import SourceRecord
+from pharmaagents.research.postcheck import check_brief, resolve_path
+from pharmaagents.schema.brief import Claim, EvidenceBrief, NumberRef
+from pharmaagents.sources.base import SourceRecord
 
 REC = SourceRecord.build("s", "R1", "https://x/R1", "2026-01-01T00:00:00+00:00",
                          {"n": 89, "terms": [{"term": "A", "count": 10}, {"term": "B", "count": 4}], "s": "12,345", "name": "x"})

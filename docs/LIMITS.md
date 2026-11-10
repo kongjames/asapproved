@@ -1,6 +1,6 @@
 # Limits
 
-asapproved answers one narrow question: **does this output still agree with what was approved, and
+pharmaagents answers one narrow question: **does this output still agree with what was approved, and
 does it reproduce from the stated source and recipe?** It does not answer:
 
 - whether the recipe is the right analysis (that is the statistical analysis plan's job);

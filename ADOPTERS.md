@@ -1,4 +1,4 @@
-# Who uses asapproved
+# Who uses pharmaagents
 
 A public record of use, outside the author's own work. Add yourself with a pull request: one row,
 your name, a role or field, the kind of organisation if you wish (the name is optional), what you

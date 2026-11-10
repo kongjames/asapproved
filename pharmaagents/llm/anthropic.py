@@ -1,4 +1,4 @@
-"""Anthropic provider. Optional: ``pip install 'asapproved[llm]'``.
+"""Anthropic provider. Optional: ``pip install 'pharmaagents[llm]'``.
 
 What this does and does not do
 ------------------------------
@@ -7,7 +7,7 @@ What this does and does not do
 * Schema-constrained JSON goes through ``output_config.format`` (structured outputs). The text
   block is parsed and returned as ``Completion.parsed``.
 * A ``refusal`` or ``max_tokens`` stop is an error, never silently returned as content.
-* Honors ``ASAPPROVED_OFFLINE=1``: constructing the provider raises, so CI cannot reach a model.
+* Honors ``PHARMAAGENTS_OFFLINE=1``: constructing the provider raises, so CI cannot reach a model.
 * Credentials come from the environment (``ANTHROPIC_API_KEY``, ``ANTHROPIC_AUTH_TOKEN`` or an
   ``ant auth login`` profile). Nothing is read from this repository.
 """
@@ -18,7 +18,7 @@ import json
 import os
 from typing import Any
 
-from asapproved.llm.base import Completion, Message, ProviderError
+from pharmaagents.llm.base import Completion, Message, ProviderError
 
 DEFAULT_MODEL = "claude-opus-5-5"
 FALLBACK_BETA = "server-side-fallback-2026-07-01"
@@ -58,13 +58,13 @@ class AnthropicProvider:
         fallbacks: bool = True,
         client: Any | None = None,
     ):
-        if os.environ.get("ASAPPROVED_OFFLINE") == "1":
-            raise ProviderError("ASAPPROVED_OFFLINE=1: live model calls are disabled")
+        if os.environ.get("PHARMAAGENTS_OFFLINE") == "1":
+            raise ProviderError("PHARMAAGENTS_OFFLINE=1: live model calls are disabled")
         if client is None:
             try:
                 import anthropic
             except ImportError as exc:  # pragma: no cover - exercised only without the extra
-                raise ProviderError("anthropic SDK not installed: pip install 'asapproved[llm]'") from exc
+                raise ProviderError("anthropic SDK not installed: pip install 'pharmaagents[llm]'") from exc
             client = anthropic.Anthropic()
         self._client = client
         self.model_id = model

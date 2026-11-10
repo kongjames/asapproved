@@ -5,10 +5,10 @@ that run. Every record carries the URL it came from, when it was retrieved and a
 stored payload, so a later re-fetch can separate "the source changed" from "the model changed".
 """
 
-from asapproved.sources.base import RecordStore, SourceRecord, canonical_sha256
-from asapproved.sources.clinicaltrials import ClinicalTrialsAdapter
-from asapproved.sources.http import OfflineError, fetch_json
-from asapproved.sources.openfda import OpenFDAAdapter
+from pharmaagents.sources.base import RecordStore, SourceRecord, canonical_sha256
+from pharmaagents.sources.clinicaltrials import ClinicalTrialsAdapter
+from pharmaagents.sources.http import OfflineError, fetch_json
+from pharmaagents.sources.openfda import OpenFDAAdapter
 
 __all__ = [
     "ClinicalTrialsAdapter", "OfflineError", "OpenFDAAdapter", "RecordStore", "SourceRecord",

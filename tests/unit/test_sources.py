@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from asapproved.sources import (
+from pharmaagents.sources import (
     ClinicalTrialsAdapter,
     OfflineError,
     OpenFDAAdapter,
@@ -12,7 +12,7 @@ from asapproved.sources import (
     canonical_sha256,
     fetch_json,
 )
-from asapproved.sources.clinicaltrials import build_url
+from pharmaagents.sources.clinicaltrials import build_url
 
 FIX = Path(__file__).resolve().parents[1] / "fixtures"
 
@@ -83,7 +83,7 @@ def test_record_store_round_trip(tmp_path):
 
 
 def test_fetch_json_respects_offline(monkeypatch):
-    monkeypatch.setenv("ASAPPROVED_OFFLINE", "1")
+    monkeypatch.setenv("PHARMAAGENTS_OFFLINE", "1")
     with pytest.raises(OfflineError):
         fetch_json("https://example.invalid/x.json")
 

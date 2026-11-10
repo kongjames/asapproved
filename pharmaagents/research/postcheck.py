@@ -11,8 +11,8 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from asapproved.schema.brief import BriefCheck, Claim, EvidenceBrief
-from asapproved.sources.base import SourceRecord
+from pharmaagents.schema.brief import BriefCheck, Claim, EvidenceBrief
+from pharmaagents.sources.base import SourceRecord
 
 _INDEX = re.compile(r"^([^\[\]]*)((?:\[\d+\])*)$")
 # a standalone figure: not part of an identifier (NCT0123), a date (2026-08-12) or a version string

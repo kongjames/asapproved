@@ -1,6 +1,6 @@
 # Method — what each check computes
 
-This page describes, in the order the reports print them, what `asapproved` computes and what a
+This page describes, in the order the reports print them, what `pharmaagents` computes and what a
 result means. Everything here is deterministic: given the same files, the same checks produce the
 same report. The regulatory documents these checks resemble are listed in
 [REGULATORY_CONTEXT.md](REGULATORY_CONTEXT.md); what the checks do not show is in

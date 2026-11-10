@@ -2,8 +2,8 @@
 
 from pathlib import Path
 
-from asapproved.assurance.agent import run_check_table
-from asapproved.assurance.render import to_markdown
+from pharmaagents.assurance.agent import run_check_table
+from pharmaagents.assurance.render import to_markdown
 
 EX = Path(__file__).resolve().parents[2] / "examples" / "pharma_tlf"
 

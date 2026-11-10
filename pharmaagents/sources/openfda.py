@@ -15,8 +15,8 @@ import urllib.parse
 from collections.abc import Callable
 from typing import Any
 
-from asapproved.sources.base import SourceRecord
-from asapproved.sources.http import fetch_json
+from pharmaagents.sources.base import SourceRecord
+from pharmaagents.sources.http import fetch_json
 
 LABEL_URL = "https://api.fda.gov/drug/label.json"
 EVENT_URL = "https://api.fda.gov/drug/event.json"

@@ -1,14 +1,14 @@
-# asapproved
+# pharmaagents
 
 **Check that an automated analysis still does what it was shown to do when it was approved.**
 
 An analysis output gets reviewed and approved once. Then the code is migrated, an AI assistant
-re-writes it, the data refreshes, and the output keeps looking confident. `asapproved` re-computes
+re-writes it, the data refreshes, and the output keeps looking confident. `pharmaagents` re-computes
 the output independently from its source and recipe, compares the approved and the new output cell
 by cell, and writes a report a reviewer can read, sign and date. The first worked example is a
 clinical-trial demographics table built on public CDISC pilot data.
 
-> **Scope and disclaimer.** `asapproved` is a research and education tool. It is not a validated
+> **Scope and disclaimer.** `pharmaagents` is a research and education tool. It is not a validated
 > system under 21 CFR Part 11 or GAMP 5, it is not endorsed by the FDA or any regulator, and it is not
 > medical advice. It uses public data only; never give it patient or employer data. Validation of a
 > system for regulated use is something your organisation does under its own procedures; this tool
@@ -40,27 +40,27 @@ brief in which every number and claim points at a stored source record. The assu
 checks that brief the same way it checks a table, and a baseline of re-runs lets it flag change
 beyond normal day-to-day variation.
 
-Shipped so far: the loop itself (`asapproved research`: plan → fetch → draft → post-check, about a
-hundred lines in `asapproved/research/agent.py`), the provider interface (`asapproved/llm/`, one
+Shipped so far: the loop itself (`pharmaagents research`: plan → fetch → draft → post-check, about a
+hundred lines in `pharmaagents/research/agent.py`), the provider interface (`pharmaagents/llm/`, one
 `complete()` call; Anthropic and a scripted fake), the source adapters with stored, hashed records
-(`asapproved/sources/`: ClinicalTrials.gov API v2, openFDA labels and FAERS counts), and the
-deterministic post-check (`asapproved check-brief`). The model sees only the records the adapters
+(`pharmaagents/sources/`: ClinicalTrials.gov API v2, openFDA labels and FAERS counts), and the
+deterministic post-check (`pharmaagents check-brief`). The model sees only the records the adapters
 stored; the check then resolves every citation and every number back to a stored record. What each
 adapter stores and under which terms: [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md). A worked
 example with two deliberate faults: [examples/pharma_brief](examples/pharma_brief/README.md).
 Still to come: the re-run baseline and drift flag.
 
-![Terminal output of asapproved check-brief on the shipped example: c3 fails on a wrong enrollment figure, c4 on a record not in the store](assets/cli-check-brief.svg)
+![Terminal output of pharmaagents check-brief on the shipped example: c3 fails on a wrong enrollment figure, c4 on a record not in the store](assets/cli-check-brief.svg)
 
 ## Start using
 
 | You want to | Run |
 |---|---|
-| See it work on the shipped example | `asapproved check-table examples/pharma_tlf/recipe.yaml --approved examples/pharma_tlf/approved_sas_table.csv --candidate examples/pharma_tlf/candidate_r_table.csv` |
-| Create an approved baseline from a recipe | `asapproved recompute my_recipe.yaml --out approved.csv` |
-| Check a new output against it | `asapproved check-table my_recipe.yaml --approved approved.csv --candidate new.csv --reviewer "Name, Role (personal capacity)"` |
-| Check the shipped example brief (no key, no network) | `asapproved check-brief examples/pharma_brief/brief.json` |
-| Answer a question from public records and check the brief | `asapproved research "What do public records say about X?" --out runs` (needs `asapproved[llm]` and an Anthropic credential) |
+| See it work on the shipped example | `pharmaagents check-table examples/pharma_tlf/recipe.yaml --approved examples/pharma_tlf/approved_sas_table.csv --candidate examples/pharma_tlf/candidate_r_table.csv` |
+| Create an approved baseline from a recipe | `pharmaagents recompute my_recipe.yaml --out approved.csv` |
+| Check a new output against it | `pharmaagents check-table my_recipe.yaml --approved approved.csv --candidate new.csv --reviewer "Name, Role (personal capacity)"` |
+| Check the shipped example brief (no key, no network) | `pharmaagents check-brief examples/pharma_brief/brief.json` |
+| Answer a question from public records and check the brief | `pharmaagents research "What do public records say about X?" --out runs` (needs `pharmaagents[llm]` and an Anthropic credential) |
 | Leave a public record of your run | [docs/ADOPTER_WORKFLOW.md](docs/ADOPTER_WORKFLOW.md) |
 
 Exit code `0` = all checks pass; `1` = at least one cell disagrees or one claim is unsupported.
@@ -73,7 +73,7 @@ SEX/RACE/age-group counts), a column subset of the public CDISC pilot **ADSL** d
 and a candidate table with two deliberate defects. The expected report is checked in:
 [examples/pharma_tlf/expected_report.md](examples/pharma_tlf/expected_report.md).
 
-![Terminal output of asapproved check-table on the shipped example: Check 1 passes, Checks 2 and 3 fail with one mismatch and one missing cell](assets/cli-check-table.svg)
+![Terminal output of pharmaagents check-table on the shipped example: Check 1 passes, Checks 2 and 3 fail with one mismatch and one missing cell](assets/cli-check-table.svg)
 
 ![Excerpt of the validation report: summary table, inputs with dataset hash and row counts, and the two disagreeing cells](assets/report-check-table.svg)
 
@@ -83,9 +83,9 @@ test keeps them in step with the code.
 ## Install
 
 ```bash
-pip install asapproved            # library + CLI
-pip install 'asapproved[data]'    # + pyreadr, to re-export the pilot data from upstream
-pip install 'asapproved[llm]'     # + the Anthropic SDK, for the research agent (the checks never need it)
+pip install pharmaagents            # library + CLI
+pip install 'pharmaagents[data]'    # + pyreadr, to re-export the pilot data from upstream
+pip install 'pharmaagents[llm]'     # + the Anthropic SDK, for the research agent (the checks never need it)
 ```
 Python 3.11 or later. Development: `uv sync --extra dev && uv run pytest`.
 
@@ -104,8 +104,8 @@ See [ADOPTERS.md](ADOPTERS.md). Add a row by pull request after filing a
 `uv run pytest`: unit tests for re-computation, comparison, the provider interface, the source
 adapters (on captured fixtures), the research loop (with the scripted provider) and the post-check;
 golden tests that both shipped examples reproduce their expected reports byte for byte. CI sets
-`ASAPPROVED_OFFLINE=1` and never calls a network or a language model; live smoke tests run only
-with `ASAPPROVED_LIVE=1`.
+`PHARMAAGENTS_OFFLINE=1` and never calls a network or a language model; live smoke tests run only
+with `PHARMAAGENTS_LIVE=1`.
 
 ## AI disclosure, citation, licence
 

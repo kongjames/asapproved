@@ -1,8 +1,8 @@
 import pandas as pd
 import pytest
 
-from asapproved.assurance.compare import compare_tables
-from asapproved.schema.artifact import TABLE_COLUMNS, Tolerances
+from pharmaagents.assurance.compare import compare_tables
+from pharmaagents.schema.artifact import TABLE_COLUMNS, Tolerances
 
 
 def _t(rows):

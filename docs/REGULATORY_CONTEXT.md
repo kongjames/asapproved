@@ -4,7 +4,7 @@ These documents describe expectations that this tool's checks resemble. None of 
 certifies or validates software. The FDA AI guidance is a **draft**; the CSA guidance is a
 **medical-device quality-system** document. Quotations are short and verbatim; read the originals.
 
-| What asapproved does | Where the idea appears in official documents | What asapproved never claims |
+| What pharmaagents does | Where the idea appears in official documents | What pharmaagents never claims |
 |---|---|---|
 | Traces every number to the dataset and recipe it came from | ICH E6(R3) 2.12.2: source records "attributable … traceable … (via an audit trail)"; 21 CFR 11.10(e) audit trails; FDA Study Data Technical Conformance Guide: define.xml metadata | "21 CFR Part 11 compliant", "GCP-certified" |
 | Re-computes a table independently and compares cell by cell | ICH E6(R3) 9.3: computerised systems "fit for purpose (e.g., through risk-based validation, if appropriate)"; sdTCG: ADaM datasets "support the results in clinical study reports" | "FDA-approved", "FDA-cleared", "meets ICH E6(R3)" |

@@ -16,5 +16,5 @@
 <text x="20" y="216" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#0969da" text-anchor="start">Cannot</text>
 <text x="120" y="216" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">judge whether the recipe is the right analysis</text>
 <line x1="20" y1="238" x2="450" y2="238" stroke="#d0d7de"/>
-<text x="20" y="262" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start">asapproved check-table recipe.yaml --approved a.csv --candidate c.csv</text>
+<text x="20" y="262" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start">pharmaagents check-table recipe.yaml --approved a.csv --candidate c.csv</text>
 </svg>

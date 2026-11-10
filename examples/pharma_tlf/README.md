@@ -3,7 +3,7 @@
 ## What This Shows
 A first programmer produced and got approval for a demographics table (`approved_sas_table.csv`). A
 second implementation — a migration to R, or code an AI assistant wrote — produced
-`candidate_r_table.csv`. `asapproved check-table` re-computes the table independently from the public
+`candidate_r_table.csv`. `pharmaagents check-table` re-computes the table independently from the public
 dataset and the recipe, then compares all three cell by cell and writes a report a reviewer can sign.
 
 ## Features
@@ -14,8 +14,8 @@ dataset and the recipe, then compares all three cell by cell and writes a report
 
 ## How To Run
 ```bash
-pip install asapproved
-asapproved check-table examples/pharma_tlf/recipe.yaml \
+pip install pharmaagents
+pharmaagents check-table examples/pharma_tlf/recipe.yaml \
   --approved examples/pharma_tlf/approved_sas_table.csv \
   --candidate examples/pharma_tlf/candidate_r_table.csv \
   --reviewer "Your Name, Your Role (personal capacity)" \

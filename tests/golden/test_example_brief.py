@@ -4,7 +4,7 @@ from pathlib import Path
 
 from typer.testing import CliRunner
 
-from asapproved.cli import app
+from pharmaagents.cli import app
 
 EX = Path(__file__).resolve().parents[2] / "examples" / "pharma_brief"
 

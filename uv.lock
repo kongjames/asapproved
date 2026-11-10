@@ -64,42 +64,6 @@ wheels = [
 ]
 
 [[package]]
-name = "asapproved"
-version = "0.1.0"
-source = { editable = "." }
-dependencies = [
-    { name = "pandas" },
-    { name = "pydantic" },
-    { name = "pyyaml" },
-    { name = "typer" },
-]
-
-[package.optional-dependencies]
-data = [
-    { name = "pyreadr" },
-]
-dev = [
-    { name = "pytest" },
-    { name = "ruff" },
-]
-llm = [
-    { name = "anthropic" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "anthropic", marker = "extra == 'llm'", specifier = ">=2.0" },
-    { name = "pandas", specifier = ">=2.2" },
-    { name = "pydantic", specifier = ">=2.7" },
-    { name = "pyreadr", marker = "extra == 'data'", specifier = ">=0.5" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8" },
-    { name = "pyyaml", specifier = ">=6.0" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.6" },
-    { name = "typer", specifier = ">=0.12" },
-]
-provides-extras = ["data", "dev", "llm"]
-
-[[package]]
 name = "colorama"
 version = "0.4.6"
 source = { registry = "https://pypi.org/simple" }
@@ -581,6 +545,42 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/69/73/76b46776b10c6ff7c2037e3748eeb713df8391a34b7768efa81a08c2a77a/pandas-3.1.1-cp315-cp315t-win_amd64.whl", hash = "sha256:f89fb8e88cc5791995cc076c526eac605adc157b6ac6cc619a33ddd0b8bf5871", size = 11273592, upload-time = "2026-11-04T15:07:57.141Z" },
     { url = "https://files.pythonhosted.org/packages/08/ab/cce173d73200410f06306a89dbbb5f2125bd64f66ca5eff393d53d813288/pandas-3.1.1-cp315-cp315t-win_arm64.whl", hash = "sha256:4e6f9a3036fc6a40c5ba00efe4092a45844212bdb6a63eda4ad5a5a4c8da45eb", size = 10604158, upload-time = "2026-11-04T15:07:59.733Z" },
 ]
+
+[[package]]
+name = "pharmaagents"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "pandas" },
+    { name = "pydantic" },
+    { name = "pyyaml" },
+    { name = "typer" },
+]
+
+[package.optional-dependencies]
+data = [
+    { name = "pyreadr" },
+]
+dev = [
+    { name = "pytest" },
+    { name = "ruff" },
+]
+llm = [
+    { name = "anthropic" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "anthropic", marker = "extra == 'llm'", specifier = ">=2.0" },
+    { name = "pandas", specifier = ">=2.2" },
+    { name = "pydantic", specifier = ">=2.7" },
+    { name = "pyreadr", marker = "extra == 'data'", specifier = ">=0.5" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8" },
+    { name = "pyyaml", specifier = ">=6.0" },
+    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.6" },
+    { name = "typer", specifier = ">=0.12" },
+]
+provides-extras = ["data", "dev", "llm"]
 
 [[package]]
 name = "pluggy"

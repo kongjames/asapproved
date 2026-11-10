@@ -11,7 +11,7 @@ from dataclasses import dataclass, field
 import numpy as np
 import pandas as pd
 
-from asapproved.schema.artifact import TABLE_COLUMNS, Recipe, RowSpec
+from pharmaagents.schema.artifact import TABLE_COLUMNS, Recipe, RowSpec
 
 MISSING_LABEL = "Missing"
 

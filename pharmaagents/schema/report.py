@@ -21,7 +21,7 @@ class CheckSummary(BaseModel):
 
 
 class ValidationReport(BaseModel):
-    tool: str = "asapproved"
+    tool: str = "pharmaagents"
     tool_version: str
     run_date: str
     recipe_name: str

@@ -1,9 +1,9 @@
-# Running asapproved and leaving a record (about 45 minutes, public data, personal capacity)
+# Running pharmaagents and leaving a record (about 45 minutes, public data, personal capacity)
 
-1. Install: `pip install asapproved` (or use the Dockerfile).
+1. Install: `pip install pharmaagents` (or use the Dockerfile).
 2. Run the shipped example, or point the recipe at your own public dataset and tables:
    ```bash
-   asapproved check-table examples/pharma_tlf/recipe.yaml \
+   pharmaagents check-table examples/pharma_tlf/recipe.yaml \
      --approved examples/pharma_tlf/approved_sas_table.csv \
      --candidate examples/pharma_tlf/candidate_r_table.csv \
      --reviewer "Your Name, Your Role (personal capacity)" --out report.md

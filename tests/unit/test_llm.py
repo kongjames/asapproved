@@ -2,8 +2,8 @@ import json
 
 import pytest
 
-from asapproved.llm import FakeProvider, Provider, ProviderError
-from asapproved.llm.anthropic import FALLBACK_BETA, AnthropicProvider, build_request
+from pharmaagents.llm import FakeProvider, Provider, ProviderError
+from pharmaagents.llm.anthropic import FALLBACK_BETA, AnthropicProvider, build_request
 
 SCHEMA = {"type": "object", "properties": {"a": {"type": "integer"}}, "required": ["a"], "additionalProperties": False}
 
@@ -76,7 +76,7 @@ class _FakeClient:
 
 
 def test_anthropic_provider_parses_json_and_uses_fallbacks(monkeypatch):
-    monkeypatch.delenv("ASAPPROVED_OFFLINE", raising=False)
+    monkeypatch.delenv("PHARMAAGENTS_OFFLINE", raising=False)
     client = _FakeClient(_Resp('{"a": 2}'))
     p = AnthropicProvider(client=client, effort="low")
     c = p.complete([{"role": "user", "content": "q"}], json_schema=SCHEMA)
@@ -87,7 +87,7 @@ def test_anthropic_provider_parses_json_and_uses_fallbacks(monkeypatch):
 
 
 def test_anthropic_provider_without_fallbacks_uses_plain_messages(monkeypatch):
-    monkeypatch.delenv("ASAPPROVED_OFFLINE", raising=False)
+    monkeypatch.delenv("PHARMAAGENTS_OFFLINE", raising=False)
     client = _FakeClient(_Resp("ok"))
     AnthropicProvider(client=client, fallbacks=False).complete([{"role": "user", "content": "q"}])
     assert "betas" not in client.last and "fallbacks" not in client.last
@@ -95,13 +95,13 @@ def test_anthropic_provider_without_fallbacks_uses_plain_messages(monkeypatch):
 
 @pytest.mark.parametrize("stop,category", [("refusal", "cyber"), ("max_tokens", None)])
 def test_anthropic_provider_refusal_and_truncation_raise(monkeypatch, stop, category):
-    monkeypatch.delenv("ASAPPROVED_OFFLINE", raising=False)
+    monkeypatch.delenv("PHARMAAGENTS_OFFLINE", raising=False)
     p = AnthropicProvider(client=_FakeClient(_Resp("partial", stop_reason=stop, category=category)))
     with pytest.raises(ProviderError):
         p.complete([{"role": "user", "content": "q"}])
 
 
 def test_anthropic_provider_respects_offline(monkeypatch):
-    monkeypatch.setenv("ASAPPROVED_OFFLINE", "1")
+    monkeypatch.setenv("PHARMAAGENTS_OFFLINE", "1")
     with pytest.raises(ProviderError):
         AnthropicProvider(client=object())

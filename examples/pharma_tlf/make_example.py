@@ -15,11 +15,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from asapproved.assurance.agent import run_check_table
-from asapproved.assurance.recompute import recompute
-from asapproved.assurance.render import to_markdown
-from asapproved.data.cdisc_pilot import load_csv
-from asapproved.schema.artifact import Recipe
+from pharmaagents.assurance.agent import run_check_table
+from pharmaagents.assurance.recompute import recompute
+from pharmaagents.assurance.render import to_markdown
+from pharmaagents.data.cdisc_pilot import load_csv
+from pharmaagents.schema.artifact import Recipe
 
 HERE = Path(__file__).parent
 FIXED_DATE = "2026-11-07"
