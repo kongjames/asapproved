@@ -2,11 +2,16 @@
 
 **Check that an automated analysis still does what it was shown to do when it was approved.**
 
-An analysis output gets reviewed and approved once. Then the code is migrated, an AI assistant
-re-writes it, the data refreshes, and the output keeps looking confident. `pharmaagents` re-computes
-the output independently from its source and recipe, compares the approved and the new output cell
-by cell, and writes a report a reviewer can read, sign and date. The first worked example is a
-clinical-trial demographics table built on public CDISC pilot data.
+In clinical statistical programming an output is validated once: a second programmer derives the
+ADaM dataset or the table, listing or figure independently, the two results are compared, and the
+approved version goes into the submission. Then the legacy SAS program is migrated to R, an AI
+assistant rewrites a derivation, or the analysis dataset refreshes, and the output keeps looking
+confident. `pharmaagents` applies the validation discipline the field already has to those new
+outputs: it re-computes the table from the analysis dataset and a machine-readable recipe, compares
+the approved output and the new output cell by cell within declared tolerances, and writes a
+validation report, with a reviewer's-guide-style trace of every derivation, that a reviewer can
+read, sign and date. The first worked example is a demographics table (the Table 14.1.1 pattern)
+built on public CDISC pilot ADSL data.
 
 > **Scope and disclaimer.** `pharmaagents` is a research and education tool. It is not a validated
 > system under 21 CFR Part 11 or GAMP 5, it is not endorsed by the FDA or any regulator, and it is not
@@ -14,6 +19,28 @@ clinical-trial demographics table built on public CDISC pilot data.
 > system for regulated use is something your organisation does under its own procedures; this tool
 > can support that work but cannot perform it. See [docs/REGULATORY_CONTEXT.md](docs/REGULATORY_CONTEXT.md)
 > and [docs/LIMITS.md](docs/LIMITS.md).
+
+## Who this is for
+
+Statistical programmers, biostatisticians and the people who review their work, in these situations:
+
+| You have | `pharmaagents` gives you |
+|---|---|
+| An approved SAS table and the same table from the migrated R program | A cell-by-cell comparison of the two, plus an independent re-computation of both from the ADaM dataset, so a difference is attributed to the migration and not to the approved output |
+| A derivation an AI coding assistant generated or rewrote | Proof that its output agrees with the approved output and reproduces from source, or the exact cells where it does not |
+| A refreshed analysis dataset and a re-run TLF | The same three checks, with the dataset's hash and row counts on the report |
+| A QC step that needs a record | A Markdown validation report with a summary table, every disagreeing cell, a trace of each derivation (variable, derivation, population, columns) and a signature block |
+| A drug-information question answered from public records | A brief in which every number points at a stored ClinicalTrials.gov or openFDA record, checked by the same deterministic trace |
+
+The vocabulary is the field's. A **recipe** is the analysis specification for one output: population
+flag, treatment variable, which variables are summarised and how, tolerances. The **dataset** is an
+ADaM dataset such as ADSL. The **approved** table is the output that passed QC. The **candidate** is
+the new output. The **trace** is what a reviewer's guide asks for: how each row block was derived.
+Tables travel as CSV in long format, so SAS and R users export and never touch Python.
+
+It does not replace an organisation's validation procedures and it does not make anything
+"validated". It gives the person running those procedures a deterministic, repeatable check and a
+record of it.
 
 ## How it works
 
@@ -65,12 +92,14 @@ Still to come: the re-run baseline and drift flag.
 
 Exit code `0` = all checks pass; `1` = at least one cell disagrees or one claim is unsupported.
 
-## Worked example: a demographics table, approved vs re-implemented
+## Worked example: Table 14.1.1 demographics, approved output vs a re-implementation
 
-`examples/pharma_tlf/` holds a recipe (safety population, by actual treatment, AGE summary and
-SEX/RACE/age-group counts), a column subset of the public CDISC pilot **ADSL** dataset (via
-[pharmaverseadam](https://github.com/pharmaverse/pharmaverseadam), Apache-2.0), an approved table,
-and a candidate table with two deliberate defects. The expected report is checked in:
+`examples/pharma_tlf/` holds a recipe (safety population `SAFFL = Y`, by actual treatment `TRT01A`,
+AGE summary statistics and SEX/RACE/AGEGR1 counts and percentages), a column subset of the public
+CDISC pilot **ADSL** dataset (via [pharmaverseadam](https://github.com/pharmaverse/pharmaverseadam),
+Apache-2.0), an approved table standing in for the QC'd SAS output, and a candidate table standing in
+for a migrated or AI-generated re-implementation, with two deliberate defects: one changed mean and
+one dropped cell. Both tables were produced for the example; neither came from SAS or R. The expected report is checked in:
 [examples/pharma_tlf/expected_report.md](examples/pharma_tlf/expected_report.md).
 
 ![Terminal output of pharmaagents check-table on the shipped example: Check 1 passes, Checks 2 and 3 fail with one mismatch and one missing cell](assets/cli-check-table.svg)
@@ -92,7 +121,9 @@ Python 3.11 or later. Development: `uv sync --extra dev && uv run pytest`.
 ## Table format
 
 Tables are **long**: one row per cell, columns `variable, category, statistic, group, value`. Export
-from SAS or R in that shape and the comparison works regardless of the language that produced it.
+from SAS (`PROC EXPORT` of a stacked dataset) or R (`write.csv` of a pivoted data frame) in that shape
+and the comparison works regardless of the language that produced it. XPT is not read directly yet;
+convert to CSV first.
 
 ## Who uses it
 
