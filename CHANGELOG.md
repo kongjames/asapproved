@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Evals: DuckDB SQL oracle for the example recipe (`tests/oracle/`) and a fault-injection
+  harness (`evals/fault_injection.py`, results in `evals/RESULTS.md`); both run in CI. `docs/EVALS.md`.
+
 ## 0.1.2 — 2026-11-10
 
 - **Renamed** `pharmaagents` → `pharma-agents`. Repository, PyPI name and CLI command are

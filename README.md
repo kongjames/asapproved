@@ -133,11 +133,14 @@ convert to CSV first.
 See [ADOPTERS.md](ADOPTERS.md). Add a row by pull request after filing a
 [validation report](.github/ISSUE_TEMPLATE/validation-report.yml).
 
-## Tests
+## Tests and evals
 
 `uv run pytest`: unit tests for re-computation, comparison, the provider interface, the source
 adapters (on captured fixtures), the research loop (with the scripted provider) and the post-check;
-golden tests that both shipped examples reproduce their expected reports byte for byte. CI sets
+golden tests that both shipped examples reproduce their expected reports byte for byte. Two evaluations go further and run in CI too: an **independent SQL oracle** (DuckDB,
+no pandas) agrees with the re-computation on all 80 cells of the example before rounding, and a
+**fault-injection run** over 1,000 single mutations of the candidate table caught 600 of 600 that
+must fail with 0 of 400 false alarms. Details and limits: [docs/EVALS.md](docs/EVALS.md). CI sets
 `PHARMA_AGENTS_OFFLINE=1` and never calls a network or a language model; live smoke tests run only
 with `PHARMA_AGENTS_LIVE=1`.
 
