@@ -1,5 +1,8 @@
 # pharmaagents
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24102334.svg)](https://doi.org/10.5281/zenodo.24102334)
+[![CI](https://github.com/kongjames/pharmaagents/actions/workflows/ci.yml/badge.svg)](https://github.com/kongjames/pharmaagents/actions/workflows/ci.yml)
+
 **Check that an automated analysis still does what it was shown to do when it was approved.**
 
 In clinical statistical programming an output is validated once: a second programmer derives the
@@ -141,4 +144,5 @@ with `PHARMAAGENTS_LIVE=1`.
 ## AI disclosure, citation, licence
 
 Built with AI assistance and reviewed line by line: [AI_DISCLOSURE.md](AI_DISCLOSURE.md).
-Cite with [CITATION.cff](CITATION.cff). Apache-2.0, see [LICENSE](LICENSE) and [NOTICE](NOTICE).
+Cite with [CITATION.cff](CITATION.cff); the archive of every release is at
+[doi:10.5281/zenodo.24102334](https://doi.org/10.5281/zenodo.24102334) (this version: 10.5281/zenodo.24102335). Apache-2.0, see [LICENSE](LICENSE) and [NOTICE](NOTICE).

@@ -5,6 +5,7 @@
 - **Renamed** from `asapproved` to `pharmaagents`: package, CLI command, environment variables
   (`PHARMAAGENTS_OFFLINE`, `PHARMAAGENTS_LIVE`), citation metadata. No behaviour change. The 0.1.0
   tag and release keep the old name as history.
+- Archived at Zenodo: concept DOI 10.5281/zenodo.24102334, this version 10.5281/zenodo.24102335.
 - README rewritten for clinical statistical programmers: who it is for, the vocabulary map, and
   what the example tables are and are not.
 
