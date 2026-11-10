@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1 — 2026-11-10
+
+- **Renamed** from `asapproved` to `pharmaagents`: package, CLI command, environment variables
+  (`PHARMAAGENTS_OFFLINE`, `PHARMAAGENTS_LIVE`), citation metadata. No behaviour change. The 0.1.0
+  tag and release keep the old name as history.
+- README rewritten for clinical statistical programmers: who it is for, the vocabulary map, and
+  what the example tables are and are not.
+
 ## 0.1.0 — 2026-11-10
 
 First release.
